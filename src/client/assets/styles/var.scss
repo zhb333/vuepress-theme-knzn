@@ -1,0 +1,108 @@
+:root {
+  // Brand Color
+  --color-primary: #0969da; // 主题色
+
+  // Functional Color
+  --color-success: #67c23a; // 成功颜色
+  --color-warning: #e6a23c; // 警告颜色
+  --color-danger: #f56c6c; // 危险颜色
+  --color-info: #909399; // 信息颜色
+
+  // Font Color
+  --color-text-primary: #303133; // 主要字体颜色
+  --color-text-regular: #606266; // 常规字体颜色
+  --color-text-secondary: #909399; // 次要字体颜色
+  --color-text-placeholde: #c0c4cc; // 占位文字颜色
+
+  // Border Color
+  --border-color-base: #dcdfe6; // 一级边框颜色
+  --border-color-light: #e4e7ed; // 二级边框颜色
+
+  // Background Color
+  --background-color-base: rgb(245, 247, 250); // 背景基础色
+  --background-color-primary: #fff; // 背景基础色
+
+  // other color
+  --color-white: #ffffff; // 基础白色
+
+  // font vars
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-code: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+  // transition vars
+  --t-color: 0.3s ease;
+  --t-transform: 0.3s ease;
+
+  // animate.css
+  --animate-delay: 0.5s;
+  --animate-duration: 0.5s;
+
+  // decor
+  --decor-bg-1: rgba(245, 247, 250, 0.1);
+  --decor-bg-2: rgba(245, 247, 250, 0.3);
+  --decor-bg-3: rgba(245, 247, 250, 0.5);
+}
+
+[data-theme='dark']:root {
+  // Font Color
+  --color-text-primary: #eee; // 主要字体颜色
+  --color-text-regular: #ddd; // 常规字体颜色
+  --color-text-secondary: #ccc; // 次要字体颜色
+  --color-text-placeholde: #bbb; // 占位文字颜色
+
+  // Border Color
+  --border-color-base: #3e4c5a; // 一级边框颜色
+  --border-color-light: #34404c; // 二级边框颜色
+
+  // Background Color
+  --background-color-base: rgb(39, 39, 43); // 背景基础色
+  --background-color-primary: #1e1e22; // 背景基础色
+
+  // decor
+  --decor-bg-1: rgba(39, 39, 43, 0.1);
+  --decor-bg-2: rgba(39, 39, 43, 0.3);
+  --decor-bg-3: rgba(39, 39, 43, 0.5);
+}
+
+[data-theme='yellow']:root {
+  // Font Color
+  --color-text-primary: #704214; // 主要字体颜色
+  --color-text-regular: #963; // 常规字体颜色
+  --color-text-secondary: rgb(173, 121, 68); // 次要字体颜色
+  --color-text-placeholde: rgb(194, 140, 86); // 占位文字颜色
+
+  // Border Color
+  --border-color-base: rgba(0, 0, 0, 0.3); // 一级边框颜色
+  --border-color-light: rgba(0, 0, 0, 0.15); // 二级边框颜色
+
+  // Background Color
+  --background-color-base: rgb(236, 236, 204); // 背景基础色
+  --background-color-primary: #f5f5d5; // 背景基础色
+
+  // decor
+  --decor-bg-1: rgba(236, 236, 204, 0.1);
+  --decor-bg-2: rgba(236, 236, 204, 0.3);
+  --decor-bg-3: rgba(236, 236, 204, 0.5);
+}
+
+[data-theme='green']:root {
+  // Font Color
+  --color-text-primary: #000000; // 主要字体颜色
+  --color-text-regular: #333; // 常规字体颜色
+  --color-text-secondary: #555; // 次要字体颜色
+  --color-text-placeholde: #777; // 占位文字颜色
+
+  // Border Color
+  --border-color-base: #b8b8b8; // 一级边框颜色
+  --border-color-light: #b6b6b6; // 二级边框颜色
+
+  // Background Color
+  --background-color-base: rgb(206, 234, 186); // 背景基础色
+  --background-color-primary: rgb(216, 244, 196); // 背景基础色
+
+  // decor
+  --decor-bg-1: rgba(206, 234, 186, 0.1);
+  --decor-bg-2: rgba(206, 234, 186, 0.3);
+  --decor-bg-3: rgba(206, 234, 186, 0.5);
+}

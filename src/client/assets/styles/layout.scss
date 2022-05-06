@@ -1,0 +1,299 @@
+.theme-layout {
+  .theme-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    z-index: -99;
+  }
+
+  .theme-aside {
+    position: sticky;
+    top: 80px;
+    width: 235px;
+    margin-right: 30px;
+    // position: sticky;
+    // top: 0;
+  }
+
+  .theme-content {
+    // min-height: calc(100vh - 400px);
+    background-color: var(--background-color-base);
+
+    .theme-container {
+      max-width: 1100px;
+      min-height: calc(100vh - 400px);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .theme-inner-content {
+    flex: 1;
+    // width: 100%;
+  }
+
+  .copyright {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+
+    .beian {
+      color: var(--color-white);
+    }
+
+    .delimiter {
+      padding: 0 8px;
+    }
+    font-size: 18px;
+  }
+
+  &:not(.HomeLayout) {
+    .theme-inner-content {
+      margin-top: 80px;
+    }
+
+    .theme-content {
+      .theme-container {
+        min-height: calc(100vh - 80px);
+      }
+    }
+
+    .pagination {
+      margin-bottom: 25px;
+    }
+
+    .copyright {
+      height: 80px;
+      border-top: 1px solid var(--border-color-base);
+      background-color: var(--background-color-primary);
+      color: var(--color-text-regular);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+
+      .beian {
+        color: var(--color-text-regular);
+      }
+    }
+  }
+  &.SearchLayout {
+    .theme-content {
+      .theme-container {
+        min-height: calc(100vh - 380px);
+      }
+    }
+  }
+}
+
+// 卡片容器
+.card-box {
+  border-radius: 5px;
+  background: var(--background-color-primary);
+  // box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 1px 3px rgb(249 249 249 / 8%), 0 0 0 1px rgb(26 53 71 / 4%),
+    0 1px 1px rgb(26 53 71 / 6%);
+}
+
+// 个人头像卡片
+.avatar-wrapper {
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  .avatar {
+    font-size: 0;
+    img {
+      width: 100%;
+    }
+  }
+
+  .blogger {
+    padding: 0 10px;
+    padding-top: 5px;
+    text-align: center;
+    .name {
+      font-size: 18px;
+      line-height: 2;
+    }
+    .slogan {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      letter-spacing: 1px;
+    }
+  }
+
+  .medias {
+    border-top: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    a {
+      color: var(--color-text-primary);
+      font-size: 18px;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
+// 分类卡片
+.categories {
+  margin-bottom: 15px;
+
+  .item {
+    padding: 8px;
+    border: 1px solid var(--color-primary);
+    transition: background-color var(--t-transform);
+    color: var(--color-text-regular);
+    display: flex;
+    margin-bottom: 8px;
+    border-radius: 5px;
+
+    .text {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .num {
+      padding: 0 8px;
+      border-radius: 50%;
+      color: var(--color-white);
+      background-color: var(--color-primary);
+    }
+  }
+
+  .item.active,
+  .item:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    .num {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+    }
+  }
+}
+
+.tags {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .item {
+    color: var(--color-white);
+    margin-bottom: 8px;
+    padding: 5px;
+    border-radius: 3px;
+    transition: transform var(--t-transform);
+    transform-origin: center;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .text {
+    margin-right: 8px;
+  }
+}
+.card-wrapper {
+  padding: 0 10px;
+  padding-bottom: 12px;
+
+  .title {
+    padding: 8px 0;
+    font-size: 16px;
+    border-bottom: 1px dashed var(--border-color-base);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    .iconfont {
+      font-weight: normal;
+    }
+  }
+
+  .list {
+    min-height: 150px;
+    font-size: 14px;
+  }
+
+  .item {
+    cursor: pointer;
+    .num {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  .more {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+  }
+
+  .more-text {
+    cursor: pointer;
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+// 扇形容器
+.decor-box {
+  height: 400px;
+  position: relative;
+  .decor {
+    left: 0;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+
+    .center {
+      fill: var(--background-color-base);
+    }
+
+    .left-1,
+    .right-1 {
+      fill: var(--decor-bg-1);
+    }
+
+    .left-2,
+    .right-2 {
+      fill: var(--decor-bg-2);
+    }
+
+    .left-3,
+    .right-3 {
+      fill: var(--decor-bg-3);
+    }
+
+    &.bottom {
+      bottom: -1px;
+    }
+    &.top {
+      top: -1px;
+      transform: rotate(180deg);
+    }
+  }
+
+  .animate__delay-p7 {
+    animation-delay: 0.7s;
+  }
+
+  .animate__delay-p8 {
+    animation-delay: 0.8s;
+  }
+}

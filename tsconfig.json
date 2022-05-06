@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "lib": ["DOM", "ES2020"],
+    "moduleResolution": "node",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "ES2018",
+    "module": "ES2020",
+    "paths": {},
+    "jsx": "preserve"
+  },
+  "include": ["**/.vuepress/**/*", "src/**/*"],
+  "exclude": ["node_modules", ".temp", "lib", "dist"]
+}

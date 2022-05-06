@@ -1,0 +1,60 @@
+{
+  "name": "vuepress-theme-knzn",
+  "version": "1.0.0",
+  "description": "blog theme for vuepress2",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "commit": "cz",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhb333/vuepress-theme-knzn.git"
+  },
+  "keywords": [
+    "vuepress-theme",
+    "vuepress",
+    "blog-theme",
+    "blog",
+    "theme"
+  ],
+  "author": "前端程序猿",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhb333/vuepress-theme-knzn/issues"
+  },
+  "homepage": "https://github.com/zhb333/vuepress-theme-knzn#readme",
+  "prettier": "prettier-config-vuepress",
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.14.0",
+    "eslint-config-vuepress": "^3.7.1",
+    "eslint-config-vuepress-typescript": "^2.7.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
+    "prettier-config-vuepress": "^1.4.0",
+    "vuepress": "^2.0.0-beta.43"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "eslint --fix",
+    "*.{json,css,scss}": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "particles.vue3": "^2.0.6",
+    "ts-debounce": "^4.0.0",
+    "tsparticles": "^2.0.6"
+  }
+}
