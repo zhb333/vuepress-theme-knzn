@@ -1,0 +1,41 @@
+@mixin arrow(
+  $direction,
+  $color: var(--color-fg-default),
+  $size: 6px,
+  $edge: 4px
+) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  @if $direction == up {
+    border: {
+      left: $edge solid transparent;
+      right: $edge solid transparent;
+      bottom: $size solid $color;
+    }
+  }
+
+  @if $direction == down {
+    border: {
+      left: $edge solid transparent;
+      right: $edge solid transparent;
+      top: $size solid $color;
+    }
+  }
+
+  @if $direction == right {
+    border: {
+      top: $edge solid transparent;
+      bottom: $edge solid transparent;
+      left: $size solid $color;
+    }
+  }
+
+  @if $direction == left {
+    border: {
+      top: $edge solid transparent;
+      bottom: $edge solid transparent;
+      right: $size solid $color;
+    }
+  }
+}

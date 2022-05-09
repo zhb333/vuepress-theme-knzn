@@ -1,13 +1,13 @@
 import type { Page, Theme } from '@vuepress/core'
-import type { ThemeLocaleOptions, ThemePageData } from './types'
+import type { ThemeOptions, ThemePageData } from './types'
 import { path } from '@vuepress/utils'
 import { gitPlugin } from '@vuepress/plugin-git'
 import { externalLinkIconPlugin } from '@vuepress/plugin-external-link-icon'
 import { themeDataPlugin } from '@vuepress/plugin-theme-data'
 import { addExtraPages, assignOptions } from './utils'
 
-export const KnznTheme = (localeOptions: ThemeLocaleOptions): Theme => {
-  assignOptions(localeOptions)
+export const KnznTheme = (options: ThemeOptions): Theme => {
+  assignOptions(options)
   return {
     name: 'vuepress-theme-knzn',
     layouts: path.resolve(__dirname, '../client/layouts'),
@@ -20,13 +20,8 @@ export const KnznTheme = (localeOptions: ThemeLocaleOptions): Theme => {
       '@theme-style': path.resolve(__dirname, '../client/assets/styles'),
     },
     extendsPage: (page: Page<Partial<ThemePageData>>) => {
-      // save relative file path into page data to generate edit link
-      page.data.filePathRelative = page.filePathRelative
-      // save title into route meta to generate navbar and sidebar
       page.routeMeta.title = page.title
-      // page.data.excerpt =
-      //   page.data.excerpt ||
-      //   getMarkdownFirstParagraph(app.markdown.render(page.content))
+      page.data.filePathRelative = page.filePathRelative
     },
     plugins: [
       gitPlugin({
@@ -35,7 +30,7 @@ export const KnznTheme = (localeOptions: ThemeLocaleOptions): Theme => {
         contributors: true,
       }),
       externalLinkIconPlugin(),
-      themeDataPlugin({ themeData: localeOptions }),
+      themeDataPlugin({ themeData: options }),
     ],
     async onInitialized(app) {
       await addExtraPages(app)

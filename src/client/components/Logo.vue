@@ -1,29 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useThemeLocaleData, useThemeMode } from '../hooks'
-import { useSiteLocaleData } from '@vuepress/client'
-import LogoSvg from './LogoSvg.vue'
+import { useThemeOptions } from '../hooks'
+import { useSiteData } from '@vuepress/client'
 
-const themeLocale = useThemeLocaleData()
-const siteLocale = useSiteLocaleData()
-
-const siteTitle = computed(() => {
-  return siteLocale.value.title
-})
-
-const themeMode = useThemeMode()
-
-const logoSrc = computed(() => {
-  return (
-    themeLocale.value.palettes?.[themeMode.value]?.logo ||
-    themeLocale.value.logo
-  )
-})
+const siteData = useSiteData()
+const themeOptions = useThemeOptions()
 </script>
 <template>
-  <RouterLink to="/" class="logo-wrapper">
-    <img v-if="logoSrc" :src="logoSrc" alt="" class="logo" />
-    <LogoSvg v-else class="logo" />
-    <strong class="title">{{ siteTitle }}</strong>
+  <RouterLink to="/" class="logo-link">
+    <img
+      v-if="themeOptions.logo"
+      :src="themeOptions.logo"
+      alt=""
+      class="logo"
+    />
+    <strong v-if="siteData.title" class="title">{{ siteData.title }}</strong>
   </RouterLink>
 </template>

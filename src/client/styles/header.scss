@@ -1,0 +1,106 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  height: 60px;
+  background-color: var(--color-canvas-default);
+  box-shadow: 0 0 60px var(--color-border-default);
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    .logo {
+      height: 45px;
+    }
+    .title {
+      margin-left: 6px;
+      font-size: 20px;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+
+    & > .navbar-dropdown,
+    & > .navbar-item {
+      padding: 10px 15px;
+      font-size: 17px;
+    }
+  }
+
+  .navbar-item {
+    .iconfont {
+      margin-right: 3px;
+    }
+  }
+
+  .navbar-dropdown {
+    cursor: pointer;
+    position: relative;
+    .arrow {
+      transition: all 500ms;
+      margin-left: 8px;
+      @include arrow(down);
+    }
+    &:hover {
+      .navbar-dropdown-subitem-wrapper {
+        transform: translateY(0px);
+        opacity: 1;
+        z-index: 99;
+      }
+      .arrow {
+        border: none;
+        @include arrow(up);
+      }
+    }
+  }
+
+  .navbar-dropdown-subitem-wrapper {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 300ms;
+    padding: 5px 0;
+    position: absolute;
+    z-index: -99;
+    background-color: var(--color-canvas-default);
+    right: 0;
+    border: 1px solid var(--color-border-default);
+    border-radius: 8px;
+    margin-top: 8px;
+    .navbar-item {
+      transition: all 300ms;
+      font-size: 15px;
+      display: block;
+      padding: 4px 25px 4px 15px;
+      white-space: nowrap;
+
+      .iconfont {
+        font-size: 15px;
+      }
+
+      &:hover {
+        color: var(--color-accent-fg);
+        background-color: var(--color-canvas-subtle);
+      }
+    }
+  }
+
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--color-canvas-default);
+    margin: 0 8px;
+    padding: 0;
+    color: var(--color-fg-default);
+    &:hover {
+      color: var(--color-accent-fg);
+    }
+    .iconfont {
+      font-size: 20px;
+    }
+  }
+}

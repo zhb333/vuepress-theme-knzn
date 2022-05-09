@@ -16,7 +16,8 @@
     "target": "ES2018",
     "module": "ES2020",
     "paths": {},
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["**/.vuepress/**/*", "src/**/*"],
   "exclude": ["node_modules", ".temp", "lib", "dist"]

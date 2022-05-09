@@ -4,8 +4,8 @@
   "description": "blog theme for vuepress2",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "vuepress dev posts",
+    "build": "vuepress build posts",
     "commit": "cz",
     "prepare": "husky install"
   },

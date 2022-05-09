@@ -4,4 +4,4 @@ lib/
 dist/
 !.vuepress/
 !.*.js
-assets/
+iconfont/
