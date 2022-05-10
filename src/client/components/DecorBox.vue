@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { PropType, Ref } from 'vue'
-import { computed, inject } from 'vue'
-import { assetScrollToBottom } from '../utils'
+import type { PropType } from 'vue'
+import { computed } from 'vue'
+import { assetScrollToBottom, assetScrollToTop } from '../utils'
 import { useScrollTop } from '../hooks'
 const props = defineProps({
   position: {
@@ -13,7 +13,7 @@ const scrollTop = useScrollTop()
 
 const isShow = computed(() => {
   return props.position === 'bottom'
-    ? scrollTop.value < 300
+    ? assetScrollToTop(scrollTop.value)
     : assetScrollToBottom(scrollTop.value)
 })
 </script>

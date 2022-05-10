@@ -39,6 +39,13 @@
   width: 100%;
   bottom: 0;
   left: 0;
+  background-color: transparent;
+  box-shadow: none;
+  .beian,
+  .delimiter,
+  .info {
+    color: var(--color-white);
+  }
 }
 
 .theme-aside {
@@ -46,6 +53,84 @@
   top: 80px;
   width: 235px;
   margin-right: 30px;
+}
+
+// banner 内容
+.banner-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--color-white);
+      text-transform: uppercase;
+    }
+  }
+}
+
+// 页脚内容
+.footer-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .medias {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+
+    a {
+      color: var(--color-white);
+      font-size: 35px;
+      margin: 0 15px;
+      transform-origin: center;
+      transition: transform var(--t-transform);
+
+      &:hover {
+        // color: var(--color-primary);
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+// back to top
+.back-to-top {
+  position: fixed;
+  bottom: var(--navbar-height);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  right: 32px;
+  text-align: center;
+  line-height: 36px;
+  box-shadow: var(--color-fg-muted) 0px 2px 6px;
+  background-color: var(--color-canvas-default);
+  cursor: pointer;
+  &:hover {
+    color: var(--color-accent-fg);
+    box-shadow: var(--color-accent-fg) 0px 2px 6px;
+    .select-box {
+      color: var(--color-fg-default);
+    }
+  }
+  .iconfont {
+    font-size: 26px;
+  }
 }
 
 // 个人头像卡片

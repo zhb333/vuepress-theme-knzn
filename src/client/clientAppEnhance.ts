@@ -1,5 +1,6 @@
 import { defineClientAppEnhance } from '@vuepress/client'
 import { h } from 'vue'
+import Particles from 'particles.vue3'
 import './styles/index.scss'
 import './iconfont/iconfont.css'
 import 'animate.css'
@@ -18,4 +19,6 @@ export default defineClientAppEnhance(async ({ app, router, siteData }) => {
   })
 
   await setupPages(app, router)
+
+  app.use(Particles)
 })

@@ -1,4 +1,5 @@
-.header {
+.theme-header {
+  transition: height var(--t-transform);
   position: fixed;
   width: 100%;
   left: 0;
@@ -90,15 +91,48 @@
     height: 35px;
     cursor: pointer;
     border: none;
-    background-color: var(--color-canvas-default);
     margin: 0 8px;
     padding: 0;
     color: var(--color-fg-default);
+    background-color: transparent;
     &:hover {
       color: var(--color-accent-fg);
     }
     .iconfont {
       font-size: 20px;
+    }
+  }
+
+  &.active {
+    height: 80px;
+    padding: 0 30px;
+    background-color: transparent;
+    box-shadow: none;
+    .theme-toggle {
+      color: var(--color-white);
+    }
+
+    .logo-link,
+    .navbar-dropdown {
+      .title {
+        color: var(--color-white);
+      }
+    }
+
+    .navbar-dropdown {
+      .arrow {
+        @include arrow(down, var(--color-white));
+      }
+      &:hover {
+        .arrow {
+          border: none;
+          @include arrow(up, var(--color-white));
+        }
+      }
+    }
+
+    &.active .navbar > .navbar-item {
+      color: var(--color-white);
     }
   }
 }

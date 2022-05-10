@@ -1,5 +1,7 @@
 import type { ThemePageData } from '../../node'
-import type { LabelItem } from '../types'
+import type { LabelItem, PostInfo } from '../types'
+export * from './particlesOptions'
+
 // tags 背景颜色
 export const Tagcolors = [
   '#849b87',
@@ -10,6 +12,49 @@ export const Tagcolors = [
   '#C158D3',
   '#5A5AB7',
 ]
+
+/**
+ * 格式 时间戳 为日期
+ * @param timestamp 时间戳
+ * @returns 日期字符串
+ */
+export function formatTimestamp(timestamp: number): string {
+  const date = new Date(timestamp)
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const format = (num: number): string => {
+    if (num < 10) return `0${num}`
+    return `${num}`
+  }
+  return `${year}-${format(month)}-${format(day)}`
+}
+
+export const getPostInfo = (post: ThemePageData): PostInfo => {
+  // frontmatter
+  const frontmatter = post.frontmatter
+  const contributors = post.git.contributors
+  // 作者
+  const author =
+    frontmatter.author || (contributors ? contributors[0].name : '')
+  // 日期
+  const date =
+    frontmatter.date || formatTimestamp(post.git.updatedTime || Date.now())
+  // 标签
+  const tags = frontmatter.tags || []
+  // 分类
+  const categories = frontmatter.categories || []
+  // 文章海报
+  const postImage = frontmatter.postImage || ''
+
+  return {
+    author,
+    date,
+    tags,
+    categories,
+    postImage,
+  }
+}
 
 /**
  * 滚动到顶部
@@ -50,6 +95,15 @@ export const assetScrollToBottom = (scrollTop: number): boolean => {
     )
   }
   return false
+}
+
+/**
+ * 是否滚动到顶部
+ * @param scrollTop 滚动条距离顶部的距离
+ * @returns
+ */
+export const assetScrollToTop = (scrollTop: number): boolean => {
+  return scrollTop < 300
 }
 
 /**

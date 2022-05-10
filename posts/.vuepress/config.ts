@@ -1,6 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import { KnznTheme } from '../../src'
-import { particlesOptions } from './particlesOptions'
+// import { particlesOptions } from './particlesOptions'
 
 export default defineUserConfig({
   // 站点配置
@@ -14,10 +14,11 @@ export default defineUserConfig({
     logo: 'https://v2.vuepress.vuejs.org/images/hero.png',
     // 背景图片
     backgroundImage: '/images/bg.svg',
+    darkBackgroundImage: '/images/bg-dark.jpg',
     // 文章简介图片
-    postImage: 'https://v2.vuepress.vuejs.org/images/hero.png',
+    // postImage: 'https://v2.vuepress.vuejs.org/images/hero.png',
     // 背景canvas 动画配置
-    particlesOptions,
+    // particlesOptions,
 
     /**
      * 博主信息相关
@@ -27,7 +28,7 @@ export default defineUserConfig({
     // 铭言
     slogan: '种一棵树最好的时间是十年前，其次是现在！',
     // 头像
-    avatar: '/images/avatar.jpg',
+    avatar: '/images/avatar.png',
     // 其它媒体
     medias: [
       { link: 'mailto:1140457303@qq.com', icon: 'email' },

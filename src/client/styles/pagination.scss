@@ -4,7 +4,7 @@
   align-items: center;
   ul {
     display: flex;
-    background-color: var(--background-color-primary);
+    background-color: var(--color-canvas-default);
     padding: 8px;
     border-radius: 50px;
   }
@@ -16,7 +16,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: var(--t-transform);
-    color: var(--color-primary);
+    color: var(--color-accent-fg);
   }
 
   .numb {
@@ -30,11 +30,11 @@
     padding: 0 20px;
     cursor: pointer;
     &:hover {
-      color: var(--color-primary);
+      color: var(--color-accent-fg);
     }
 
     &[disabled='true'] {
-      color: var(--color-text-secondary);
+      color: var(--color-fg-subtle);
       cursor: not-allowed;
     }
   }
@@ -47,6 +47,6 @@
   .active,
   .numb:hover {
     color: #fff;
-    background-color: var(--color-primary);
+    background-color: var(--color-accent-fg);
   }
 }

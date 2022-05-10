@@ -2,8 +2,8 @@
 import { computed, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import type { ThemePageData } from '../../node'
-import { usePageInfo, useThemeLocaleData, useThemeMode } from '../hooks'
-import postImg from '../../assets/images/post.svg'
+import { getPostInfo } from '../utils'
+import { useThemeOptions } from '../hooks'
 
 const props = defineProps({
   post: {
@@ -18,23 +18,22 @@ const props = defineProps({
 
 // 文章
 const { post, postPosition } = toRefs(props)
-const { frontmatter, author, date, tags, categories } = usePageInfo(post.value)
+const { author, date, tags, categories, postImage } = getPostInfo(post.value)
 
-const themeLocale = useThemeLocaleData()
-const themeMode = useThemeMode()
+const themeOptions = useThemeOptions()
+
 const postSrc = computed(() => {
-  return (
-    frontmatter.postImage ||
-    themeLocale.value.palettes?.[themeMode.value]?.postImage ||
-    themeLocale.value.postImage ||
-    postImg
-  )
+  return postImage || themeOptions.value.postImage || ''
 })
+
 const postStyle = computed(() => {
-  return {
-    'background-image': `url("${postSrc.value}")`, // 海报图片
+  const style = {
     'background-position': `${postPosition.value} center`, // 海报位置
   }
+  if (postSrc.value) {
+    style['background-image'] = `url("${postSrc.value}")` // 海报图片
+  }
+  return style
 })
 </script>
 <template>
