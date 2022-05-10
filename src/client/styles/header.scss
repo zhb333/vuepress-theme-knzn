@@ -1,11 +1,14 @@
 .header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 25px;
-  height: 60px;
-  background-color: var(--color-canvas-default);
-  box-shadow: 0 0 60px var(--color-border-default);
+  @include navbar-base();
 
   .logo-link {
     display: flex;
@@ -46,9 +49,7 @@
     }
     &:hover {
       .navbar-dropdown-subitem-wrapper {
-        transform: translateY(0px);
-        opacity: 1;
-        z-index: 99;
+        display: block;
       }
       .arrow {
         border: none;
@@ -58,12 +59,9 @@
   }
 
   .navbar-dropdown-subitem-wrapper {
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: all 300ms;
+    display: none;
     padding: 5px 0;
     position: absolute;
-    z-index: -99;
     background-color: var(--color-canvas-default);
     right: 0;
     border: 1px solid var(--color-border-default);

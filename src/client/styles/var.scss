@@ -1,15 +1,24 @@
 :root {
+  // colors
   --color-fg-default: #24292f; // 默认文字颜色
   --color-fg-muted: #57606a; // 次要文字颜色
   --color-fg-subtle: #6e7781; // 占位文字颜色
   --color-canvas-default: #ffffff; // 默认背景颜色
-  --color-canvas-subtle: #f6f8fa; // 次要背景颜色
+  --color-canvas-subtle: rgb(246, 248, 250); // 次要背景颜色
   --color-border-default: #d0d7de; // 默认边框颜色
   --color-border-muted: hsla(210, 18%, 87%, 1); // 次要边框颜色
   --color-accent-fg: #0969da; // 主题色
   // =====
   --color-attention-subtle: #fff8c5;
   --color-danger-fg: #cf222e;
+  // decor
+  --decor-bg-1: rgba(246, 248, 250, 0.1);
+  --decor-bg-2: rgba(246, 248, 250, 0.3);
+  --decor-bg-3: rgba(246, 248, 250, 0.5);
+
+  // sizes
+  --navbar-height: 60px;
+  --content-width: 1100px;
 }
 
 .dark:root {
@@ -17,11 +26,15 @@
   --color-fg-muted: #8b949e;
   --color-fg-subtle: #484f58;
   --color-canvas-default: #0d1117;
-  --color-canvas-subtle: #161b22;
+  --color-canvas-subtle: rgb(22, 27, 34);
   --color-border-default: #30363d;
   --color-border-muted: #21262d;
   --color-accent-fg: #58a6ff;
   // =====
   --color-attention-subtle: rgba(187, 128, 9, 0.15);
   --color-danger-fg: #f85149;
+  // decor
+  --decor-bg-1: rgba(22, 27, 34, 0.1);
+  --decor-bg-2: rgba(22, 27, 34, 0.3);
+  --decor-bg-3: rgba(22, 27, 34, 0.5);
 }

@@ -1,6 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import { KnznTheme } from '../../src'
-import { particlesOptions } from './configs/particlesOptions'
+import { particlesOptions } from './particlesOptions'
 
 export default defineUserConfig({
   // 站点配置
@@ -61,6 +61,6 @@ export default defineUserConfig({
     // 备案查询地址
     beianUrl: '',
     // 网址起始时间
-    footerStartDate: '2018',
+    siteStartDate: '2018',
   }),
 })

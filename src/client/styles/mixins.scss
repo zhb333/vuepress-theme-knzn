@@ -39,3 +39,15 @@
     }
   }
 }
+
+@mixin navbar-base {
+  height: var(--navbar-height);
+  background-color: var(--color-canvas-default);
+  box-shadow: 0 0 var(--navbar-height) var(--color-border-default);
+}
+
+@mixin flex-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

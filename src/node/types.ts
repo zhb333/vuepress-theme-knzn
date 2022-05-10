@@ -55,7 +55,7 @@ export interface ThemeOptions {
   // 备案查询地址
   beianUrl?: string
   // 网址起始时间
-  footerStartDate?: string
+  siteStartDate?: string
 }
 
 /**

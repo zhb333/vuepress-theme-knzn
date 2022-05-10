@@ -11,7 +11,7 @@ export const DEFAULT_LOCALE_OPTIONS: ThemeOptions = {
   maxTags: 10,
   beian: 'Apache-2.0',
   beianUrl: 'https://beian.miit.gov.cn/#/Integrated/index',
-  footerStartDate: '1990',
+  siteStartDate: '1990',
 }
 
 /**

@@ -1,6 +1,7 @@
 import { defineClientAppSetup } from '@vuepress/client'
-import { setupDarkMode } from './hooks'
+import { setupDarkMode, setupScrollTop } from './hooks'
 
 export default defineClientAppSetup(() => {
   setupDarkMode()
+  setupScrollTop()
 })
