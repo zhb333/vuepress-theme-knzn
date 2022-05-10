@@ -3,7 +3,9 @@ import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 import DecorBox from '../components/DecorBox.vue'
 import CardAvatar from '../components/CardAvatar.vue'
-import { useLayout, useThemeOptions } from '../hooks'
+import CardCategories from '../components/CardCategories.vue'
+import CardTags from '../components/CardTags.vue'
+import { useLayout, usePages, useThemeOptions } from '../hooks'
 import { computed } from 'vue'
 const themeOptions = useThemeOptions()
 const contianerStyle = computed(() => {
@@ -13,6 +15,7 @@ const contianerStyle = computed(() => {
 })
 
 const layout = useLayout()
+const pages = usePages()
 </script>
 <template>
   <Header />
@@ -22,6 +25,8 @@ const layout = useLayout()
     <div class="theme-content">
       <aside class="theme-aside">
         <CardAvatar />
+        <CardCategories :pages="pages" />
+        <CardTags :pages="pages" />
       </aside>
       <section class="posts-wrapper">{{ layout }}</section>
     </div>

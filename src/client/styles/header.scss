@@ -68,7 +68,7 @@
     border-radius: 8px;
     margin-top: 8px;
     .navbar-item {
-      transition: all 300ms;
+      transition: all var(--t-transform);
       font-size: 15px;
       display: block;
       padding: 4px 25px 4px 15px;

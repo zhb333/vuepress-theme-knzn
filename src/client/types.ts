@@ -5,3 +5,5 @@ export type LayoutType =
   | 'SearchLayout'
   | 'PostsLayout'
   | 'PostLayout'
+
+export type LabelItem = { text: string; num: number }

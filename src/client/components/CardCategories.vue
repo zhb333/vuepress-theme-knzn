@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useThemeLocaleData } from '../../hooks'
+import { useThemeOptions } from '../hooks'
 import type { PropType } from 'vue'
 import { computed, ref } from 'vue'
-import { getInfoFromPages } from '../../utils'
-import type { CategoryType } from '../../types'
+import { getInfoFromPages } from '../utils'
+import type { LabelItem } from '../types'
 import { useRouter } from 'vue-router'
-import type { ThemePageData } from '../../../node'
+import type { ThemePageData } from '../../node'
 const router = useRouter()
 
 const props = defineProps({
@@ -21,10 +21,8 @@ const props = defineProps({
 
 const title = props.all ? '全部标签' : '热门标签'
 
-const themeLocale = useThemeLocaleData()
-const categories = ref<CategoryType[]>(
-  getInfoFromPages(props.pages, 'categories')
-)
+const themeOptions = useThemeOptions()
+const categories = ref<LabelItem[]>(getInfoFromPages(props.pages, 'categories'))
 
 if (props.all) {
   categories.value.unshift({ text: 'all', num: props.pages.length })
@@ -34,7 +32,7 @@ const categoriesList = computed(() => {
   if (props.all) {
     return categories.value
   } else {
-    return categories.value.slice(0, themeLocale.value.maxTags)
+    return categories.value.slice(0, themeOptions.value.maxCategories)
   }
 })
 
@@ -49,7 +47,7 @@ const category = computed(() => {
 <template>
   <!-- categories -->
   <section class="card-box card-wrapper categories">
-    <header class="header">
+    <header>
       <h3 class="title">
         <i class="iconfont icon-categorynormal"></i>
         <span> {{ title }} </span>
@@ -67,7 +65,7 @@ const category = computed(() => {
         ><span class="num">{{ item.num }}</span>
       </li>
       <li
-        v-if="!props.all && categories.length > themeLocale.maxCategories"
+        v-if="!props.all && categories.length > themeOptions.maxCategories"
         class="more"
       >
         <span class="more-text" @click="handleItem('all')"

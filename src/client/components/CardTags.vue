@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useThemeLocaleData } from '../../hooks'
+import { useThemeOptions } from '../hooks'
 import type { PropType } from 'vue'
 import { computed, ref } from 'vue'
-import { colors, getInfoFromPages } from '../../utils'
-import type { CategoryType } from '../../types'
+import { getInfoFromPages, Tagcolors } from '../utils'
+import type { LabelItem } from '../types'
 import { useRouter } from 'vue-router'
-import type { ThemePageData } from '../../../node'
+import type { ThemePageData } from '../../node'
 
 const router = useRouter()
 
@@ -22,8 +22,8 @@ const props = defineProps({
 
 const title = props.all ? '全部标签' : '热门标签'
 
-const themeLocale = useThemeLocaleData()
-const tags = ref<CategoryType[]>(getInfoFromPages(props.pages, 'tags'))
+const themeOptions = useThemeOptions()
+const tags = ref<LabelItem[]>(getInfoFromPages(props.pages, 'tags'))
 
 if (props.all) {
   tags.value.unshift({ text: 'all', num: props.pages.length })
@@ -33,14 +33,14 @@ const tagsList = computed(() => {
   if (props.all) {
     return tags.value
   } else {
-    return tags.value.slice(0, themeLocale.value.maxTags)
+    return tags.value.slice(0, themeOptions.value.maxTags)
   }
 })
 
 const getBackgroundColor = (): Record<string, string> => {
-  const index = Math.floor(Math.random() * colors.length)
+  const index = Math.floor(Math.random() * Tagcolors.length)
   return {
-    'background-color': colors[index],
+    'background-color': Tagcolors[index],
   }
 }
 
@@ -51,7 +51,7 @@ const handleTag = (tag): void => {
 <template>
   <!-- tags -->
   <section class="card-box card-wrapper tags">
-    <header class="header">
+    <header>
       <h3 class="title">
         <i class="iconfont icon-tag"></i>
         <span> {{ title }} </span>
@@ -69,7 +69,7 @@ const handleTag = (tag): void => {
         ><span class="num">{{ item.num }}</span>
       </li>
     </ul>
-    <div v-if="!props.all && tags.length > themeLocale.maxTags" class="more">
+    <div v-if="!props.all && tags.length > themeOptions.maxTags" class="more">
       <span class="more-text" @click="handleTag('all')"
         >更多
         <i class="iconfont icon-next"></i>
