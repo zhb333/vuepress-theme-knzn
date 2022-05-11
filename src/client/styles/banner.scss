@@ -1,0 +1,63 @@
+// banner 内容
+.banner-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--color-white);
+      text-transform: uppercase;
+    }
+  }
+}
+
+// 扇形容器
+.decor-box {
+  height: 400px;
+  position: relative;
+  .decor {
+    left: 0;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+
+    .center {
+      fill: var(--color-canvas-subtle);
+    }
+
+    .left-1,
+    .right-1 {
+      fill: var(--decor-bg-1);
+    }
+
+    .left-2,
+    .right-2 {
+      fill: var(--decor-bg-2);
+    }
+
+    .left-3,
+    .right-3 {
+      fill: var(--decor-bg-3);
+    }
+
+    &.bottom {
+      bottom: -1px;
+    }
+    &.top {
+      top: -1px;
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.theme-footer {
+  @include navbar-base();
+  @include flex-middle();
+  .delimiter {
+    margin: 0 8px;
+  }
+}
+
+.home-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  box-shadow: none;
+  .beian,
+  .delimiter,
+  .info {
+    font-size: 18px;
+    color: var(--color-white);
+  }
+}
+
+// 页脚内容
+.footer-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .medias {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+
+    a {
+      color: var(--color-white);
+      font-size: 35px;
+      margin: 0 15px;
+      transform-origin: center;
+      transition: transform var(--t-transform);
+
+      &:hover {
+        // color: var(--color-primary);
+        transform: scale(1.15);
+      }
+    }
+  }
+}

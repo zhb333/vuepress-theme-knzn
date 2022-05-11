@@ -3,7 +3,7 @@ import { computed, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import type { ThemePageData } from '../../node'
 import { getPostInfo } from '../utils'
-import { useThemeOptions } from '../hooks'
+import { useDarkMode, useThemeOptions } from '../hooks'
 
 const props = defineProps({
   post: {
@@ -16,6 +16,8 @@ const props = defineProps({
   },
 })
 
+const isDarkMode = useDarkMode()
+
 // 文章
 const { post, postPosition } = toRefs(props)
 const { author, date, tags, categories, postImage } = getPostInfo(post.value)
@@ -23,7 +25,12 @@ const { author, date, tags, categories, postImage } = getPostInfo(post.value)
 const themeOptions = useThemeOptions()
 
 const postSrc = computed(() => {
-  return postImage || themeOptions.value.postImage || ''
+  const { postImage: themePostImage, darkPostImage } = themeOptions.value
+  return (
+    postImage ||
+    (isDarkMode.value ? darkPostImage : themePostImage) ||
+    themePostImage
+  )
 })
 
 const postStyle = computed(() => {

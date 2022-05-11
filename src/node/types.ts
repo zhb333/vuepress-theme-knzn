@@ -15,10 +15,16 @@ export interface ThemeOptions {
   dirname?: string
   // logo
   logo?: string
+  // 暗黑模式 logo
+  darkLogo?: string
   // 背景图片
   backgroundImage?: string
+  // 暗黑模式 背景图片
+  darkBackgroundImage?: string
   // 文章简介图片
   postImage?: string
+  // 暗黑模式 文章简介图片
+  darkPostImage?: string
   // 背景canvas 动画配置
   particlesOptions?: ISourceOptions
 
@@ -31,6 +37,8 @@ export interface ThemeOptions {
   slogan?: string
   // 头像
   avatar?: string
+  // 暗黑模式 头像
+  darkAvatar?: string
   // 其它媒体
   medias?: MediaItem[]
 

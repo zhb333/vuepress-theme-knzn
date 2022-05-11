@@ -17,6 +17,7 @@ export default defineUserConfig({
     darkBackgroundImage: '/images/bg-dark.jpg',
     // 文章简介图片
     // postImage: 'https://v2.vuepress.vuejs.org/images/hero.png',
+    darkPostImage: '/images/post-dark.svg',
     // 背景canvas 动画配置
     // particlesOptions,
 
@@ -28,7 +29,8 @@ export default defineUserConfig({
     // 铭言
     slogan: '种一棵树最好的时间是十年前，其次是现在！',
     // 头像
-    avatar: '/images/avatar.png',
+    avatar: '/images/avatar.jpg',
+    darkAvatar: '/images/avatar-dark.jpg',
     // 其它媒体
     medias: [
       { link: 'mailto:1140457303@qq.com', icon: 'email' },

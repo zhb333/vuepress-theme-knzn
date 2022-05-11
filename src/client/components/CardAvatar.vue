@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { useThemeOptions } from '../hooks'
+import { useDarkMode, useThemeOptions } from '../hooks'
 import { computed } from 'vue'
 import Medias from './Medias.vue'
 const themeOptions = useThemeOptions()
+const isDarkMode = useDarkMode()
 
 const avatarSrc = computed(() => {
-  return themeOptions.value.avatar
+  const { avatar, darkAvatar } = themeOptions.value
+  return (isDarkMode.value ? darkAvatar : avatar) || avatar
 })
 </script>
 <template>
