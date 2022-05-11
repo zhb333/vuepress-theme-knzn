@@ -73,7 +73,7 @@ const handlePageChange = (num): void => {
       <div class="theme-wrapper">
         <PostList :pages="pageList" />
         <Pagination
-          v-show="pages.length > perPage"
+          v-show="total > perPage"
           :per-page="perPage"
           :page="page"
           :total="total"

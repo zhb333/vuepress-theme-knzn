@@ -35,7 +35,7 @@ const toggleTheme = (): void => {
     </button>
     <NavbarItem
       class="animate__animated animate__slideInRight"
-      :item="{ text: '搜索', link: '/search' }"
+      :item="{ text: '搜索', link: '/search/' }"
       :icon="'icon-search'"
     />
   </nav>

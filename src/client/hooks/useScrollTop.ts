@@ -1,3 +1,6 @@
+/**
+ * 监听滚动行为
+ */
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import type { Ref } from 'vue'
 import { getScrollTop } from '../utils'

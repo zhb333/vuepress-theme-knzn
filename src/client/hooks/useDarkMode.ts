@@ -1,3 +1,6 @@
+/**
+ * 浅色或暗黑模式
+ */
 import { usePreferredDark, useStorage } from '@vueuse/core'
 import { computed, inject, onMounted, onUnmounted, provide, watch } from 'vue'
 import type { InjectionKey, WritableComputedRef } from 'vue'

@@ -1,3 +1,6 @@
+/**
+ * 获取所有文章
+ */
 import { usePagesData } from '@vuepress/client'
 import type { ThemePageData } from '../../node'
 import { inject } from 'vue'

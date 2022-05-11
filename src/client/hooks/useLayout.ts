@@ -1,3 +1,6 @@
+/**
+ * 当前布局
+ */
 import { useRoute } from 'vue-router'
 import { ref, watch } from 'vue'
 import type { Ref } from 'vue'
