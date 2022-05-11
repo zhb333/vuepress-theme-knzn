@@ -60,14 +60,16 @@ export const getPostInfo = (post: ThemePageData): PostInfo => {
  * 滚动到顶部
  * @returns void
  */
-export const scrollToTop = (): void =>
+export const scrollToTop = (): void => {
   window?.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
 /**
  * 获取滚动的高度
  * @returns number
  */
 export const getScrollTop = (): number => {
+  if (typeof window === 'undefined') return 0
   return (
     window.pageYOffset ||
     window.document.documentElement.scrollTop ||
@@ -84,11 +86,11 @@ export const getScrollTop = (): number => {
 export const assetScrollToBottom = (scrollTop: number): boolean => {
   if (typeof window !== 'undefined') {
     const windowHeight =
-      window?.document.documentElement.clientHeight ||
-      window?.document.body.clientHeight // 可视区的高度
+      window.document.documentElement.clientHeight ||
+      window.document.body.clientHeight // 可视区的高度
     const scrollHeight =
-      window?.document.documentElement.scrollHeight ||
-      window?.document.body.scrollHeight // dom元素的高度，包含溢出不可见的内容
+      window.document.documentElement.scrollHeight ||
+      window.document.body.scrollHeight // dom元素的高度，包含溢出不可见的内容
     return (
       scrollHeight > windowHeight &&
       scrollHeight <= scrollTop + windowHeight + 200

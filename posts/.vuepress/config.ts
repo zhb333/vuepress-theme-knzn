@@ -1,6 +1,7 @@
 import { defineUserConfig } from 'vuepress'
 import { KnznTheme } from '../../src'
 // import { particlesOptions } from './particlesOptions'
+import { webpackBundler } from '@vuepress/bundler-webpack'
 
 export default defineUserConfig({
   // 站点配置
@@ -8,7 +9,7 @@ export default defineUserConfig({
   title: 'knzn.net',
   description: '大前端知识分享网站',
   debug: true,
-
+  bundler: webpackBundler(),
   theme: KnznTheme({
     // logo
     logo: 'https://v2.vuepress.vuejs.org/images/hero.png',

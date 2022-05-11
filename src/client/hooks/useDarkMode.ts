@@ -52,7 +52,7 @@ export const setupDarkMode = (): void => {
 export const updateHtmlDarkClass = (isDarkMode: DarkModeRef): void => {
   const update = (value = isDarkMode.value): void => {
     // set `class="dark"` on `<html>` element
-    const htmlEl = window?.document.querySelector('html')
+    const htmlEl = window.document.querySelector('html')
     htmlEl?.classList.toggle('dark', value)
   }
 
