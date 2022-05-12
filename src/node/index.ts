@@ -4,6 +4,8 @@ import { path } from '@vuepress/utils'
 import { gitPlugin } from '@vuepress/plugin-git'
 import { externalLinkIconPlugin } from '@vuepress/plugin-external-link-icon'
 import { themeDataPlugin } from '@vuepress/plugin-theme-data'
+import { tocPlugin } from '@vuepress/plugin-toc'
+import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 import { addExtraPages, assignOptions } from './utils'
 
 export const KnznTheme = (options: ThemeOptions): Theme => {
@@ -31,6 +33,13 @@ export const KnznTheme = (options: ThemeOptions): Theme => {
       }),
       externalLinkIconPlugin(),
       themeDataPlugin({ themeData: options }),
+      tocPlugin({
+        // 配置项
+      }),
+      activeHeaderLinksPlugin({
+        // 配置项
+        headerLinkSelector: 'a.vuepress-toc-link',
+      }),
     ],
     async onInitialized(app) {
       await addExtraPages(app)

@@ -31,6 +31,7 @@
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@vuepress/bundler-webpack": "^2.0.0-beta.43",
+    "@vuepress/plugin-toc": "^2.0.0-beta.43",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.14.0",

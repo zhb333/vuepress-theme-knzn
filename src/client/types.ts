@@ -1,3 +1,4 @@
+import type { ThemePageData } from '../node'
 export type LayoutType =
   | 'HomeLayout'
   | 'CategoriesLayout'
@@ -14,4 +15,8 @@ export type PostInfo = {
   categories: string[]
   tags: string[]
   postImage: string
+}
+
+export type SidebarData = Partial<ThemePageData> & {
+  children?: ThemePageData[]
 }

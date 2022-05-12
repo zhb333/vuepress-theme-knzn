@@ -1,7 +1,37 @@
 .post-tocs {
   width: var(--aside-width);
-  height: 300px;
   margin-left: 15px;
   position: sticky;
   top: 90px;
+
+  .vuepress-toc-list {
+    padding-left: 12px;
+  }
+
+  .vuepress-toc-link {
+    color: var(--color-fg-muted);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background-color: var(--color-accent-fg);
+      display: none;
+    }
+
+    &.active {
+      color: var(--color-accent-fg);
+      &::before {
+        display: block;
+      }
+    }
+  }
+
+  .vuepress-toc-item {
+    margin-bottom: 8px;
+  }
 }

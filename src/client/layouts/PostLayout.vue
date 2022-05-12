@@ -16,7 +16,7 @@ const pageData = usePageData()
         <Content :page-key="pageData.key" />
       </div>
 
-      <CardTocs :tocs="pageData.headers" />
+      <CardTocs v-if="pageData.headers.length" />
     </div>
   </main>
   <BackToTop />
