@@ -1,20 +1,23 @@
 <script setup lang="ts">
 import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
+import PostAside from '../components/PostAside.vue'
+import CardTocs from '../components/CardTocs.vue'
 import BackToTop from '../components/BackToTop.vue'
 import { usePageData } from '@vuepress/client'
 const pageData = usePageData()
 </script>
 <template>
   <Header />
-  <main class="theme-container theme-common-container">
-    <div class="theme-content">
+  <main class="theme-container theme-post-container">
+    <PostAside />
+    <div class="theme-content post-container">
       <!-- 文章内容 -->
-      <div class="theme-wrapper markdown-body">
+      <div class="markdown-body">
         <Content :page-key="pageData.key" />
       </div>
+
+      <CardTocs :tocs="pageData.headers" />
     </div>
   </main>
-  <Footer />
   <BackToTop />
 </template>

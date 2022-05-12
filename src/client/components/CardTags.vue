@@ -47,6 +47,10 @@ const getBackgroundColor = (): Record<string, string> => {
 const handleTag = (tag): void => {
   router.push({ path: '/tags/', query: { tag } })
 }
+
+const isShowMore = computed(() => {
+  return tags.value.length > (themeOptions.value.maxTags as number)
+})
 </script>
 <template>
   <!-- tags -->
@@ -69,7 +73,7 @@ const handleTag = (tag): void => {
         ><span class="num">{{ item.num }}</span>
       </li>
     </ul>
-    <div v-if="!props.all && tags.length > themeOptions.maxTags" class="more">
+    <div v-if="!props.all && isShowMore" class="more">
       <span class="more-text" @click="handleTag('all')"
         >更多
         <i class="iconfont icon-next"></i>

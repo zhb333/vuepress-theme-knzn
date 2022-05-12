@@ -4,22 +4,45 @@
   flex-direction: column;
 }
 
+// 页面内容 父容器
 .theme-container {
   flex: 1;
   background-color: var(--color-canvas-subtle);
 }
 
+.theme-post-container {
+  padding-top: var(--navbar-height);
+  display: flex;
+}
+
+// 通用页面内容 父容器
 .theme-common-container {
   padding-top: 80px;
   padding-bottom: 50px;
 }
 
+// 页面内容容器
 .theme-content {
   width: var(--content-width);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.post-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+
+  .markdown-body {
+    margin: 0;
+  }
+}
+
+.search-container {
+  width: calc(var(--content-width) - var(--aside-width));
 }
 
 .theme-wrapper {

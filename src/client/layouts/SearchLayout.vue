@@ -102,7 +102,7 @@ const handleSearch = (): void => {
     </Transition>
   </div>
   <main class="theme-container theme-common-container">
-    <div class="theme-content">
+    <div class="theme-content search-container">
       <!-- 文章列表 -->
       <div class="theme-wrapper">
         <PostList :pages="pageList" />

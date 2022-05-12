@@ -19,7 +19,7 @@ const props = defineProps({
   },
 })
 
-const title = props.all ? '全部标签' : '热门标签'
+const title = props.all ? '全部分类' : '热门分类'
 
 const themeOptions = useThemeOptions()
 const categories = ref<LabelItem[]>(getInfoFromPages(props.pages, 'categories'))
@@ -43,6 +43,10 @@ const handleItem = (category): void => {
 const category = computed(() => {
   return router.currentRoute.value.query.category
 })
+
+const isShowMore = computed(() => {
+  return categories.value.length > (themeOptions.value.maxCategories as number)
+})
 </script>
 <template>
   <!-- categories -->
@@ -64,10 +68,7 @@ const category = computed(() => {
         <span class="text" :title="item.text">{{ item.text }}</span
         ><span class="num">{{ item.num }}</span>
       </li>
-      <li
-        v-if="!props.all && categories.length > themeOptions.maxCategories"
-        class="more"
-      >
+      <li v-if="!props.all && isShowMore" class="more">
         <span class="more-text" @click="handleItem('all')"
           >更多
           <i class="iconfont icon-next"></i>

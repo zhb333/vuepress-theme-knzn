@@ -53,7 +53,7 @@
         display: block;
       }
       .arrow {
-        border: none;
+        border-color: transparent;
         @include arrow(up);
       }
     }
