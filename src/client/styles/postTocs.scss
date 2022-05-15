@@ -12,21 +12,11 @@
     color: var(--color-fg-muted);
     position: relative;
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 0;
-      height: 100%;
-      width: 4px;
-      background-color: var(--color-accent-fg);
-      display: none;
-    }
-
     &.active {
       color: var(--color-accent-fg);
       &::before {
-        display: block;
+        @include item-active-label();
+        left: -10px;
       }
     }
   }

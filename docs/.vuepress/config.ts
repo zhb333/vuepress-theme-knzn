@@ -66,5 +66,11 @@ export default defineUserConfig({
     beianUrl: '',
     // 网址起始时间
     siteStartDate: '2018',
+    comment: {
+      repo: 'zhb333/vuepress-theme-knzn',
+      repoId: 'R_kgDOHSwV_A',
+      category: 'General',
+      categoryId: 'DIC_kwDOHSwV_M4CPHIA',
+    },
   }),
 })

@@ -1,7 +1,7 @@
 /**
  * 根据类型获取文章
  */
-import { usePages, useThemeOptions } from '../hooks'
+import { usePages, useThemeOptions } from '.'
 import { computed, ref, watch } from 'vue'
 import type { ComputedRef, Ref } from 'vue'
 import { useRoute } from 'vue-router'

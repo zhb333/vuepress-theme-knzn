@@ -20,3 +20,5 @@ export type PostInfo = {
 export type SidebarData = Partial<ThemePageData> & {
   children?: ThemePageData[]
 }
+
+export type SidebarItem = Partial<ThemePageData & { children: ThemePageData }>

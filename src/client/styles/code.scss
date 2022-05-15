@@ -1,0 +1,150 @@
+// code languages
+$codeLang: 'c' 'cpp' 'cs' 'css' 'dart' 'docker' 'fs' 'go' 'html' 'java' 'js'
+  'json' 'kt' 'less' 'makefile' 'md' 'php' 'py' 'rb' 'rs' 'sass' 'scss' 'sh'
+  'styl' 'ts' 'toml' 'vue' 'yml' !default;
+
+.markdown-body {
+  pre,
+  pre[class*='language-'] {
+    line-height: 1.4;
+    padding: 1.3rem 1.5rem;
+    margin: 0rem 0;
+    border-radius: 6px;
+    overflow: auto;
+
+    code {
+      color: var(--code-default-color);
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+      overflow-wrap: unset;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+  }
+
+  .line-number {
+    font-family: var(--font-family-code);
+  }
+}
+
+div[class*='language-'] {
+  position: relative;
+  background-color: var(--code-bg-color);
+  border-radius: 6px;
+  max-height: 30em;
+  overflow: auto;
+  margin-bottom: 15px;
+
+  &::before {
+    position: absolute;
+    z-index: 3;
+    top: 0.8em;
+    right: 1em;
+    font-size: 0.75rem;
+    color: var(--code-ln-color);
+  }
+
+  pre,
+  pre[class*='language-'] {
+    // force override the background color to be compatible with shiki
+    background: transparent !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  .highlight-lines {
+    user-select: none;
+    padding-top: 1.3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 1.4;
+
+    .highlight-line {
+      background-color: var(--code-hl-bg-color);
+    }
+  }
+
+  &:not(.line-numbers-mode) {
+    .line-numbers {
+      display: none;
+    }
+  }
+
+  &.line-numbers-mode {
+    .highlight-lines .highlight-line {
+      position: relative;
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        display: block;
+        width: var(--code-ln-wrapper-width);
+        height: 100%;
+      }
+    }
+
+    pre {
+      margin-left: var(--code-ln-wrapper-width);
+      padding-left: 1rem;
+      vertical-align: middle;
+    }
+
+    .line-numbers {
+      position: absolute;
+      top: 0;
+      width: var(--code-ln-wrapper-width);
+      text-align: center;
+      color: var(--code-ln-color);
+      padding: 1.25rem 0;
+      line-height: 1.4;
+      border-right: 1px solid var(--color-border-default);
+
+      br {
+        user-select: none;
+      }
+
+      .line-number {
+        position: relative;
+        z-index: 3;
+        user-select: none;
+        font-size: 0.85em;
+        line-height: 0;
+      }
+    }
+
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: var(--code-ln-wrapper-width);
+    //   height: 100%;
+    //   border-radius: 6px 0 0 6px;
+    //   border-right: 1px solid var(--code-hl-bg-color);
+    // }
+  }
+}
+
+@each $lang in $codeLang {
+  div[class*='language-'].ext-#{$lang} {
+    &:before {
+      content: '' + $lang;
+    }
+  }
+}
+
+// narrow mobile
+@media (max-width: $MQMobileNarrow) {
+  .markdown-body {
+    div[class*='language-'] {
+      margin: 0.85rem -1.5rem;
+      border-radius: 0;
+    }
+  }
+}

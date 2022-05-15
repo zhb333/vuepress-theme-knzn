@@ -4,8 +4,8 @@
   "description": "blog theme for vuepress2",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "vuepress dev posts",
-    "build": "vuepress build posts",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
     "commit": "cz",
     "prepare": "husky install"
   },
@@ -54,6 +54,7 @@
     }
   },
   "dependencies": {
+    "@giscus/vue": "^2.0.4",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "particles.vue3": "^2.0.6",

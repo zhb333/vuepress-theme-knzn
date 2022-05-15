@@ -125,7 +125,7 @@
       }
       &:hover {
         .arrow {
-          border: none;
+          border-color: transparent;
           @include arrow(up, var(--color-white));
         }
       }

@@ -115,3 +115,10 @@
 .animate__delay-p8 {
   animation-delay: 0.8s;
 }
+
+// 分割线
+.theme-divider {
+  width: 100%;
+  border-bottom: 1px dashed var(--color-border-default);
+  margin: 25px 0;
+}

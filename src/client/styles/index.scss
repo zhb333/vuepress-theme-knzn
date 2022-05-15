@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'var.scss';
 @import 'base.scss';
 @import 'mixins.scss';
@@ -15,3 +16,6 @@
 @import 'footer.scss';
 
 @import 'markdown.scss';
+@import 'prism-default.scss';
+@import 'prism-solarizedlight.scss';
+@import 'code.scss';

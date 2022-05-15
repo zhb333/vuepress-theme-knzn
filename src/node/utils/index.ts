@@ -4,7 +4,7 @@ import { createPage } from '@vuepress/core'
 import { getNavbar } from './navbar'
 
 export const DEFAULT_LOCALE_OPTIONS: ThemeOptions = {
-  dirname: 'posts',
+  dirname: 'docs',
   perPage: 10,
   medias: [],
   maxCategories: 6,
@@ -12,6 +12,13 @@ export const DEFAULT_LOCALE_OPTIONS: ThemeOptions = {
   beian: 'Apache-2.0',
   beianUrl: 'https://beian.miit.gov.cn/#/Integrated/index',
   siteStartDate: '1990',
+  comment: {
+    repo: '/',
+    repoId: '',
+    category: '',
+    categoryId: '',
+    lang: 'zh-CN',
+  },
 }
 
 /**
@@ -22,6 +29,14 @@ export const assignOptions = (options: ThemeOptions): void => {
   DEFAULT_LOCALE_OPTIONS.navbar = getNavbar(
     DEFAULT_LOCALE_OPTIONS.dirname as string
   )
+  if (options.comment) {
+    options.comment = {
+      ...DEFAULT_LOCALE_OPTIONS.comment,
+      ...options.comment,
+    }
+  } else {
+    DEFAULT_LOCALE_OPTIONS.comment = undefined
+  }
   Object.assign(options, {
     ...DEFAULT_LOCALE_OPTIONS,
     ...options,

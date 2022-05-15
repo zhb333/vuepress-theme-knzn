@@ -8,6 +8,14 @@ export type MediaItem = {
   icon: string
 }
 
+export type Comment = {
+  repo: `${string}/${string}` // 仓库 必须，string，格式：user_name/repo_name
+  repoId: string // 仓库 ID 必须，string，在 Giscus 官网上生成
+  category: string // discussion 分类名 必须，string
+  categoryId: string // discussion 分类 ID 必须，string，在 Giscus 官网上生成
+  lang?: string // 语言 可选，string，default="auto"（跟随网站语言，如果 Giscus 不支持你的网站的语言，则会
+}
+
 /**
  * 主题配置
  */
@@ -64,6 +72,8 @@ export interface ThemeOptions {
   beianUrl?: string
   // 网址起始时间
   siteStartDate?: string
+
+  comment?: Comment
 }
 
 /**
@@ -117,5 +127,7 @@ export type MediaType =
 export interface MenuItem {
   text: string
   link: string
-  children?: MenuItem[]
+  children?: MenuList
 }
+
+export type MenuList = MenuItem[]

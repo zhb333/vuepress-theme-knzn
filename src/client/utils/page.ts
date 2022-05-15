@@ -1,5 +1,5 @@
-import type { ThemePageData } from '../../node'
-import type { LabelItem, PostInfo, SidebarData } from '../types'
+import type { MenuItem, MenuList, ThemePageData } from '../../node'
+import type { LabelItem, PostInfo } from '../types'
 
 // tags 背景颜色
 export const Tagcolors = [
@@ -12,35 +12,56 @@ export const Tagcolors = [
   '#5A5AB7',
 ]
 
-export function formatSidebarPages(
+/**
+ * 获取左侧菜单
+ * @param pages
+ * @param dirPath 当前文章所属的目录 /dirname/.../
+ * @returns
+ */
+export function getSidebarPages(
   pages: ThemePageData[],
-  dirPath: string
-): SidebarData {
-  const list: ThemePageData[] = []
-  let root = {} as SidebarData
+  dirPath: string,
+  list: MenuList
+): MenuList {
+  // console.log('dirPath', dirPath)
   for (const page of pages) {
     const paths = page.path.split(dirPath)
-    const secordPath = paths[1]
-    if (secordPath === '') {
-      root = page
-    } else if (paths[1].includes('/')) {
-      const deepPaths = secordPath.split('/')
-      const deepPages = pages.filter((item) =>
-        item.path.startsWith(`${dirPath}${deepPaths[0]}/`)
-      )
-      console.log(deepPages)
-      // const isExistPage = list.find
-      // if ()
-      // console.log(deepPaths)
-      // console.log(paths)
-      // console.log(page)
-      //
+    const secondPath = paths[1]
+    if (!secondPath) continue
+    const { path, title } = page
+    if (!secondPath.includes('/')) {
+      const menuItem: MenuItem = {
+        link: path,
+        text: title,
+      }
+      // 如果 secondPath 为不包括 / 字符，则为 page  配置
+      list.push(menuItem)
     } else {
-      list.push(page)
+      const deepPaths = secondPath.split('/')
+      const deepDir = dirPath + deepPaths[0] + '/'
+      const isExist = list.find((item) => item.link === deepDir)
+      if (isExist) continue
+      const menuItem: MenuItem = {
+        text: decodeURIComponent(deepPaths[0]),
+        link: deepDir,
+        children: [],
+      }
+      const deepPages = pages.filter((item) => item.path.startsWith(deepDir))
+      getSidebarPages(deepPages, deepDir, menuItem.children as MenuList)
+      list.push(menuItem)
     }
   }
-  root.children = list
-  return root
+  return list.sort((a, b) => {
+    const s1 = a.text.toLocaleLowerCase()
+    const s2 = b.text.toLocaleLowerCase()
+    if (s1 < s2) {
+      return -1
+    }
+    if (s1 > s2) {
+      return 1
+    }
+    return 0
+  })
 }
 
 /**
@@ -66,7 +87,8 @@ export const getPostInfo = (post: ThemePageData): PostInfo => {
   const contributors = post.git.contributors
   // 作者
   const author =
-    frontmatter.author || (contributors ? contributors[0].name : '')
+    frontmatter.author ||
+    (contributors ? (contributors[0] ? contributors[0].name : '') : '')
   // 日期
   const date =
     frontmatter.date || formatTimestamp(post.git.updatedTime || Date.now())
