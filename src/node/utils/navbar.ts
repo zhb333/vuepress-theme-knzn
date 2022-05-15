@@ -23,7 +23,7 @@ const getNavbarItem = (cPath: string, tName: string): MenuItem => {
   const item = path.parse(cPath)
   return {
     text: item.name,
-    link,
+    link: link.endsWith('.html') ? link : link + '/?layout=PostsLayout',
   }
 }
 
@@ -45,7 +45,7 @@ const getDirNavbarItem = (cPath: string, tName: string): MenuItem => {
     // 下拉框导航
     const children: MenuItem[] = []
     cFiles.forEach((file) => {
-      if (file.toLowerCase() === 'index.md') return
+      // if (file.toLowerCase() === 'index.md') return
       const item = getNavbarItem(path.join(cPath, file), tName)
       children.push(item)
     })

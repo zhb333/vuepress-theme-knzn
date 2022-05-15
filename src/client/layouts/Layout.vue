@@ -6,6 +6,7 @@ import CategoriesLayout from './CategoriesLayout.vue'
 import TagsLayout from './TagsLayout.vue'
 import SearchLayout from './SearchLayout.vue'
 import PostLayout from './PostLayout.vue'
+import PostsLayout from './PostsLayout.vue'
 const layout = useLayout()
 
 const map = {
@@ -14,6 +15,7 @@ const map = {
   TagsLayout,
   SearchLayout,
   PostLayout,
+  PostsLayout,
 }
 
 const currentLayout = computed(() => map[layout.value])

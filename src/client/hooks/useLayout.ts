@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import { ref, watch } from 'vue'
 import type { Ref } from 'vue'
 import type { LayoutType } from '../types'
+import { isPostsLayout } from '../utils'
 
 export const layoutMap: Record<string, LayoutType> = {
   '/': 'HomeLayout',
@@ -16,7 +17,7 @@ export const layoutMap: Record<string, LayoutType> = {
 export const getLayout = (path): LayoutType => {
   const layout = layoutMap[path]
   if (!layout) {
-    if (/\/\w+$/i.test(path)) return 'PostsLayout'
+    if (isPostsLayout(path)) return 'PostsLayout'
     return 'PostLayout'
   }
   return layout

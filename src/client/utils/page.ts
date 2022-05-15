@@ -12,6 +12,11 @@ export const Tagcolors = [
   '#5A5AB7',
 ]
 
+export const isPostsLayout = (path: string): boolean => {
+  const search = window.location.search
+  return search.includes('layout=PostsLayout')
+}
+
 /**
  * 获取左侧菜单
  * @param pages
