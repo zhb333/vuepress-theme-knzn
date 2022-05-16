@@ -1,17 +1,24 @@
 <script setup lang="ts">
 import Header from '../components/Header.vue'
-import PostList from '../components/PostList.vue'
 import BackToTop from '../components/BackToTop.vue'
-import Pagination from '../components/Pagination.vue'
 import Footer from '../components/Footer.vue'
-import { useDarkMode, usePages, useScrollTop, useThemeOptions } from '../hooks'
-import { computed, ref } from 'vue'
+import CardCategories from '../components/CardCategories.vue'
+import CardTags from '../components/CardTags.vue'
+import NavbarItem from '../components/NavbarItem.vue'
+import PostInfo from '../components/PostInfo.vue'
+import {
+  useDarkMode,
+  useMenuList,
+  usePages,
+  useScrollTop,
+  useThemeOptions,
+} from '../hooks'
+import { computed } from 'vue'
+import type { Ref } from 'vue'
 import { assetScrollToTop } from '../utils'
+import { usePageData } from '@vuepress/client'
 import type { ThemePageData } from '../../node'
-// 搜索内容
-const searchText = ref('')
-// 搜索的文章
-const list = ref<ThemePageData[]>([])
+
 const themeOptions = useThemeOptions()
 const scrollTop = useScrollTop()
 const isDarkMode = useDarkMode()
@@ -30,51 +37,11 @@ const contianerStyle = computed(() => {
 // 导航是否置顶
 const isActiveCls = computed(() => assetScrollToTop(scrollTop.value))
 
+const menuList = useMenuList()
 const pages = usePages()
 
-const perPage = themeOptions.value.perPage || 10
-const page = ref(1)
-const total = ref(0)
-const pageList = computed(() => {
-  const skip = (page.value - 1) * perPage
-  return list.value.slice(skip, skip + perPage)
-})
-
-const handlePageChange = (num): void => {
-  page.value = num
-}
-
-// 搜索文章
-const handleSearch = (): void => {
-  const arr: ThemePageData[] = []
-  if (!searchText.value) {
-    list.value = []
-    page.value = 1
-    total.value = 0
-    return
-  }
-  for (const page of pages) {
-    if (page.title.includes(searchText.value)) {
-      if (!arr.includes(page)) {
-        arr.push(page)
-        continue
-      }
-    }
-    const headers = page.headers
-    if (!headers) continue
-    for (const header of headers) {
-      if (header.title.includes(searchText.value)) {
-        if (!arr.includes(page)) {
-          arr.push(page)
-        }
-        continue
-      }
-    }
-  }
-  list.value = arr
-  page.value = 1
-  total.value = arr.length
-}
+const pageData = usePageData() as Ref<ThemePageData>
+console.log(pageData.value)
 </script>
 <template>
   <!-- 头部 -->
@@ -82,37 +49,28 @@ const handleSearch = (): void => {
   <!-- 背景图片 -->
   <div class="theme-background" :style="contianerStyle"></div>
   <!-- 搜索页 banner -->
-  <div class="search-banner">
-    <Transition
-      enter-active-class="animate__animated animate__fadeInDown animate__fast"
-      appear
-    >
-      <div class="search-box">
-        <button class="icon">
-          <i class="iconfont icon-search"></i>
-        </button>
-        <input
-          v-model.trim="searchText"
-          type="text"
-          class="search-input"
-          placeholder="请输入搜索内容..."
-        />
-        <button class="search-btn" @click="handleSearch">搜索</button>
-      </div>
-    </Transition>
-  </div>
-  <main class="theme-container theme-common-container">
-    <div class="theme-content search-container">
+  <div class="posts-banner"></div>
+  <main class="theme-container theme-posts-container">
+    <div class="theme-content">
+      <!-- 侧边栏 -->
+      <aside class="theme-aside">
+        <CardCategories :pages="pages" />
+        <CardTags :pages="pages" />
+      </aside>
       <!-- 文章列表 -->
-      <div class="theme-wrapper">
-        <PostList :pages="pageList" />
-        <Pagination
-          v-show="total > perPage"
-          :per-page="perPage"
-          :page="page"
-          :total="total"
-          @page-change="handlePageChange"
-        />
+      <div class="theme-wrapper posts-container card-box">
+        <header v-if="pageData.path" class="header">
+          <h1>{{ pageData.title }}</h1>
+          <PostInfo :post="pageData" />
+        </header>
+        <div class="post-content markdown-body">
+          <Content />
+        </div>
+        <ul class="posts">
+          <li v-for="item of menuList" :key="item.text" class="posts-item">
+            <NavbarItem :item="item" />
+          </li>
+        </ul>
       </div>
     </div>
   </main>

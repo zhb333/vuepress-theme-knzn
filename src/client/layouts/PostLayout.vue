@@ -3,10 +3,13 @@ import Header from '../components/Header.vue'
 import PostAside from '../components/PostAside.vue'
 import CardTocs from '../components/CardTocs.vue'
 import BackToTop from '../components/BackToTop.vue'
+import PostInfo from '../components/PostInfo.vue'
 import { usePageData } from '@vuepress/client'
 import GiscusComment from '../components/GiscusComment.vue'
+import type { ThemePageData } from '../../node'
+import type { Ref } from 'vue'
 
-const pageData = usePageData()
+const pageData = usePageData() as Ref<ThemePageData>
 </script>
 <template>
   <Header />
@@ -14,10 +17,19 @@ const pageData = usePageData()
     <PostAside />
     <div class="theme-content post-container">
       <!-- 文章内容 -->
-      <div class="markdown-body">
-        <Content :page-key="pageData.key" />
+      <div class="post-wrapper">
+        <div class="markdown-body">
+          <h1 class="post-title">
+            <span>{{ pageData.title }}</span>
+            <PostInfo :post="pageData" />
+          </h1>
+          <Content :page-key="pageData.key" />
+        </div>
+
         <div class="theme-divider"></div>
-        <GiscusComment />
+        <div class="giscus-comment">
+          <GiscusComment />
+        </div>
       </div>
 
       <CardTocs v-if="pageData.headers.length" />

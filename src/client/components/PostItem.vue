@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, toRefs } from 'vue'
 import type { PropType } from 'vue'
+import PostInfo from './PostInfo.vue'
 import type { ThemePageData } from '../../node'
 import { getPostInfo } from '../utils'
 import { useDarkMode, useThemeOptions } from '../hooks'
@@ -20,7 +21,7 @@ const isDarkMode = useDarkMode()
 
 // 文章
 const { post, postPosition } = toRefs(props)
-const { author, date, tags, categories, postImage } = getPostInfo(post.value)
+const { postImage } = getPostInfo(post.value)
 
 const themeOptions = useThemeOptions()
 
@@ -57,26 +58,7 @@ const postStyle = computed(() => {
             {{ post.title }}
           </RouterLink>
         </h2>
-        <div class="post-info">
-          <span class="post-info-item">
-            <i class="iconfont icon-avatar" title="作者"></i>
-            {{ author }}</span
-          >
-          <span class="post-info-item">
-            <i class="iconfont icon-datetime" title="日期"></i>
-            {{ date }}</span
-          >
-          <span v-if="categories!.length" class="post-info-item">
-            <i class="iconfont icon-categorynormal" title="分类"></i>
-            <i v-for="text of categories" :key="text" class="post-type">{{
-              text
-            }}</i>
-          </span>
-          <span v-if="tags!.length" class="post-info-item">
-            <i class="iconfont icon-tag" title="标签"></i>
-            <i v-for="text of tags" :key="text" class="post-type">{{ text }}</i>
-          </span>
-        </div>
+        <PostInfo :post="post" />
       </header>
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="post-excerpt" v-html="post.excerpt"></div>

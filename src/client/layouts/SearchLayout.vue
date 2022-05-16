@@ -101,10 +101,10 @@ const handleSearch = (): void => {
       </div>
     </Transition>
   </div>
-  <main class="theme-container theme-common-container">
+  <main class="theme-container theme-search-container">
     <div class="theme-content search-container">
       <!-- 文章列表 -->
-      <div class="theme-wrapper">
+      <div class="theme-wrapper theme-content-wrapper">
         <PostList :pages="pageList" />
         <Pagination
           v-show="total > perPage"

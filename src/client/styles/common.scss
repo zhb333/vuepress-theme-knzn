@@ -10,6 +10,11 @@
   background-color: var(--color-canvas-subtle);
 }
 
+.theme-search-container,
+.theme-posts-container {
+  padding: 25px 0;
+}
+
 .theme-post-container {
   padding-top: var(--navbar-height);
   display: flex;
@@ -121,4 +126,18 @@
   width: 100%;
   border-bottom: 1px dashed var(--color-border-default);
   margin: 25px 0;
+}
+
+.giscus-comment {
+  padding: 15px;
+  background-color: var(--color-canvas-default);
+}
+
+.post-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  .post-info {
+    font-weight: normal;
+  }
 }

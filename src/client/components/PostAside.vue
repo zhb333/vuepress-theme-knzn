@@ -1,29 +1,12 @@
 <script setup lang="ts">
-import { usePages } from '../hooks'
+import { useMenuList } from '../hooks'
 import { useRoute } from 'vue-router'
-import { getSidebarPages } from '../utils'
-import type { MenuList } from '../../node'
-// import NavbarVue from './Navbar.vue'
 import NavbarItem from './NavbarItem.vue'
-import type { Ref } from 'vue'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
-const menuList = ref([]) as Ref<MenuList>
+const menuList = useMenuList()
 const route = useRoute()
-const pages = usePages()
 const dirLink = ref('')
-
-const getList = (): void => {
-  menuList.value = []
-  const dirPath = route.path.replace(/[\w%-]+\.html$/, '')
-  const sidebarPages = pages.filter((page) => page.path.startsWith(dirPath))
-  getSidebarPages(sidebarPages, dirPath, menuList.value)
-}
-watch(
-  () => route.path,
-  () => getList(),
-  { immediate: true }
-)
 
 const handleDirClick = (link: string): void => {
   if (link === dirLink.value) {

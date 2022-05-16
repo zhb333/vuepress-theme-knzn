@@ -36,6 +36,28 @@
   --code-ln-wrapper-width: 3.5rem;
   --code-bg-color: var(--color-canvas-subtle);
   --code-default-color: var(--color-fg-muted);
+
+  // custom container colors
+  --c-tip: #42b983;
+  --c-tip-bg: var(--color-canvas-subtle);
+  --c-tip-title: var(--color-fg-defaul);
+  --c-tip-text: var(--color-fg-defaul);
+  --c-tip-text-accent: var(--color-accent-fg);
+  --c-warning: #e7c000;
+  --c-warning-bg: #fffae3;
+  --c-warning-title: #ad9000;
+  --c-warning-text: #746000;
+  --c-warning-text-accent: var(--color-fg-defaul);
+  --c-danger: #cc0000;
+  --c-danger-bg: #ffe0e0;
+  --c-danger-title: #990000;
+  --c-danger-text: #660000;
+  --c-danger-text-accent: var(--color-fg-defaul);
+  --c-details-bg: #eeeeee;
+  // badge component colors
+  --c-badge-tip: var(--c-tip);
+  --c-badge-warning: var(--c-warning);
+  --c-badge-danger: var(--c-danger);
 }
 
 .dark:root {

@@ -7,6 +7,7 @@ import { themeDataPlugin } from '@vuepress/plugin-theme-data'
 import { tocPlugin } from '@vuepress/plugin-toc'
 import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 import { prismjsPlugin } from '@vuepress/plugin-prismjs'
+import { containerPlugin } from '@vuepress/plugin-container'
 import { addExtraPages, assignOptions } from './utils'
 
 export const KnznTheme = (options: ThemeOptions): Theme => {
@@ -56,6 +57,44 @@ export const KnznTheme = (options: ThemeOptions): Theme => {
         headerLinkSelector: 'a.vuepress-toc-link',
       }),
       prismjsPlugin(),
+
+      // @vuepress/plugin-container
+      containerPlugin({
+        type: 'tip',
+        locales: {
+          en: { defaultInfo: 'TIP' },
+        },
+      }),
+      containerPlugin({
+        type: 'warning',
+        locales: {
+          en: { defaultInfo: 'WARNING' },
+        },
+      }),
+      containerPlugin({
+        type: 'danger',
+        locales: {
+          en: { defaultInfo: 'DANGER' },
+        },
+      }),
+      containerPlugin({
+        type: 'details',
+        before: (info) =>
+          `<details class="custom-container details">${
+            info ? `<summary>${info}</summary>` : ''
+          }\n`,
+        after: () => '</details>\n',
+      }),
+      containerPlugin({
+        type: 'code-group',
+        before: () => `<CodeGroup>\n`,
+        after: () => '</CodeGroup>\n',
+      }),
+      containerPlugin({
+        type: 'code-group-item',
+        before: (info) => `<CodeGroupItem title="${info}">\n`,
+        after: () => '</CodeGroupItem>\n',
+      }),
     ],
     async onInitialized(app) {
       await addExtraPages(app)

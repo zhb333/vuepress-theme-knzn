@@ -1,4 +1,6 @@
-# 命令行接口
+---
+title: 命令行接口
+---
 
 <NpmBadge package="@vuepress/cli" />
 
@@ -25,7 +27,7 @@ Options:
   -h, --help     Display this message
 ```
 
-::: tip
+::: tip 提示
 VuePress 使用了 [debug](https://www.npmjs.com/package/debug) 模块。
 
 设置环境变量 `DEBUG=vuepress*` 可以启用调试日志。
