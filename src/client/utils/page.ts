@@ -13,8 +13,11 @@ export const Tagcolors = [
 ]
 
 export const isPostsLayout = (path: string): boolean => {
-  const search = window.location.search
-  return search.includes('layout=PostsLayout')
+  if (typeof window !== 'undefined') {
+    const search = window.location.search
+    return search.includes('layout=PostsLayout')
+  }
+  return false
 }
 
 /**
