@@ -140,7 +140,7 @@ div[class*='language-'] {
 }
 
 // narrow mobile
-@media (max-width: $MQMobileNarrow) {
+@media (max-width: Narrow) {
   .markdown-body {
     div[class*='language-'] {
       margin: 0.85rem -1.5rem;

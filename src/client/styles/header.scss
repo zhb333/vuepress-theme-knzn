@@ -135,4 +135,14 @@
       color: var(--color-white);
     }
   }
+
+  @media (max-width: $MQNarrow) {
+    &,
+    &.active {
+      height: 100vh;
+      transition: transform 0.2s ease;
+      width: 17.099999999999998rem;
+      background-color: var(--color-canvas-default);
+    }
+  }
 }

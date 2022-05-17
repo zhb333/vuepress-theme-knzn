@@ -943,14 +943,6 @@
   resolved "https://mirrors.tencent.com/npm/@vueuse%2fmetadata/-/metadata-8.4.2.tgz#b33e6b7bd5ca69e3f24ea41b149267118bcd566f"
   integrity sha512-2BIj++7P0/I5dfMsEe8q7Kw0HqVAjVcyNOd9+G22/ILUC9TVLTeYOuJ1kwa1Gpr+0LWKHc6GqHiLWNL33+exoQ==
 
-"@vueuse/router@^8.4.2":
-  version "8.4.2"
-  resolved "https://mirrors.cloud.tencent.com/npm/@vueuse%2frouter/-/router-8.4.2.tgz#1f472487280a5a7fb845c48cba3fbea8345db4c3"
-  integrity sha512-0cu2Zcj+zM6/6qPtjrQ5R/Sngobglw+f8cuq1+G6mdLl99glHvtRNRGzvbtO08qXHoK7C9JpQ7ewHn62iKjrGw==
-  dependencies:
-    "@vueuse/shared" "8.4.2"
-    vue-demi "*"
-
 "@vueuse/shared@8.4.2":
   version "8.4.2"
   resolved "https://mirrors.tencent.com/npm/@vueuse%2fshared/-/shared-8.4.2.tgz#5900f06ff78bd8b6df4cbf48f8ca82dd6d9747d1"
