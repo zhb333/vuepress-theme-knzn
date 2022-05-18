@@ -15,7 +15,29 @@ const toggleTheme = (): void => {
 </script>
 <template>
   <nav class="navbar">
-    <template v-for="item in navbar" :key="item.text">
+    <i class="iconfont icon-menu menu-btn"></i>
+    <ul class="nav-list">
+      <li
+        v-for="item in navbar"
+        :key="item.text"
+        class="nav-item animate__animated animate__slideInRight"
+      >
+        <NavbarDropdown v-if="item.children" :item="item" />
+        <NavbarItem v-else :item="item" />
+      </li>
+      <li class="nav-item animate__animated animate__slideInRight">
+        <button class="theme-toggle" @click="toggleTheme">
+          <i class="iconfont" :class="themeIcon"></i>
+        </button>
+      </li>
+      <li class="nav-item animate__animated animate__slideInRight search-link">
+        <NavbarItem
+          :item="{ text: '搜索', link: '/search/' }"
+          :icon="'icon-search'"
+        />
+      </li>
+    </ul>
+    <!-- <template v-for="item in navbar" :key="item.text">
       <NavbarDropdown
         v-if="item.children"
         :item="item"
@@ -26,17 +48,6 @@ const toggleTheme = (): void => {
         :item="item"
         class="animate__animated animate__slideInRight"
       />
-    </template>
-    <button
-      class="theme-toggle animate__animated animate__slideInRight"
-      @click="toggleTheme"
-    >
-      <i class="iconfont" :class="themeIcon"></i>
-    </button>
-    <NavbarItem
-      class="animate__animated animate__slideInRight"
-      :item="{ text: '搜索', link: '/search/' }"
-      :icon="'icon-search'"
-    />
+    </template> -->
   </nav>
 </template>

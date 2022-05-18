@@ -19,6 +19,8 @@ const { item } = toRefs(props)
 <template>
   <RouterLink :to="item.link" class="navbar-item">
     <i v-if="props.icon" :class="props.icon" class="iconfont"></i>
-    {{ item.text }}</RouterLink
-  >
+    <span class="text">
+      {{ item.text }}
+    </span>
+  </RouterLink>
 </template>
