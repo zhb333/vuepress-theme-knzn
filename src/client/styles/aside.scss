@@ -3,6 +3,10 @@
   // top: 80px;
   width: var(--aside-width);
   margin-right: 30px;
+  @media (max-width: $MQNarrow) {
+    width: 100%;
+    margin-bottom: 25px;
+  }
 }
 
 // 个人头像卡片
@@ -58,7 +62,7 @@
   }
 
   .item {
-    color: var(--color-canvas-default);
+    color: var(--color-white);
     margin-bottom: 8px;
     padding: 5px;
     border-radius: 3px;
@@ -134,9 +138,17 @@
   .list {
     min-height: 150px;
     font-size: 14px;
+    @media (max-width: $MQNarrow) {
+      align-items: flex-start;
+      justify-content: flex-start;
+      min-height: auto;
+    }
   }
 
   .item {
+    @media (max-width: $MQNarrow) {
+      margin-right: 8px;
+    }
     cursor: pointer;
     .num {
       font-size: 12px;

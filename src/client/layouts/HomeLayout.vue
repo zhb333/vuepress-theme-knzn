@@ -46,11 +46,11 @@ const handlePageChange = (num): void => {
   <!-- 头部 -->
   <Header :is-logo="!isActiveCls" :class="{ active: isActiveCls }" />
   <!-- 背景图片 -->
-  <!-- <div class="theme-background" :style="contianerStyle"></div> -->
+  <div class="theme-background" :style="contianerStyle"></div>
   <!-- canvas 背景动画 -->
-  <!-- <ParticlesBg /> -->
+  <ParticlesBg />
   <!-- 首页banner -->
-  <!-- <DecorBox v-slot="{ active }">
+  <DecorBox v-slot="{ active }">
     <div class="banner-content">
       <Transition
         enter-active-class="animate__animated animate__fadeInDown animate__fast"
@@ -59,18 +59,18 @@ const handlePageChange = (num): void => {
         <Logo v-show="active" />
       </Transition>
     </div>
-  </DecorBox> -->
+  </DecorBox>
   <!-- 首页内容 -->
   <main class="theme-container">
     <div class="theme-content">
       <!-- 侧边栏 -->
-      <!-- <aside class="theme-aside">
+      <aside class="theme-aside home-comment-aside">
         <CardAvatar />
         <CardCategories :pages="pages" />
         <CardTags :pages="pages" />
-      </aside> -->
+      </aside>
       <!-- 文章列表 -->
-      <!-- <div class="theme-wrapper">
+      <div class="theme-wrapper">
         <PostList :pages="pageList" />
         <Pagination
           v-show="total > perPage"
@@ -79,11 +79,11 @@ const handlePageChange = (num): void => {
           :total="total"
           @page-change="handlePageChange"
         />
-      </div> -->
+      </div>
     </div>
   </main>
   <!-- 页脚banner -->
-  <!-- <DecorBox position="top">
+  <DecorBox position="top">
     <template #default="{ active }">
       <div class="footer-content">
         <Transition enter-active-class="animate__animated animate__fadeInDown">
@@ -96,7 +96,8 @@ const handlePageChange = (num): void => {
         </Transition>
       </div>
     </template>
-  </DecorBox> -->
+  </DecorBox>
+  <Footer class="home-comment-footer" />
   <!-- 回到顶部 -->
   <BackToTop />
 </template>

@@ -18,11 +18,13 @@ const pageData = usePageData() as Ref<ThemePageData>
     <div class="theme-content post-container">
       <!-- 文章内容 -->
       <div class="post-wrapper">
+        <i class="iconfont icon-categorynormal aside-btn"></i>
+        <i class="iconfont icon-book toc-btn"></i>
         <div class="markdown-body">
           <h1 class="post-title">
             <span>{{ pageData.title }}</span>
-            <PostInfo :post="pageData" />
           </h1>
+          <PostInfo :post="pageData" />
           <Content :page-key="pageData.key" />
         </div>
 

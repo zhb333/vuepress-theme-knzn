@@ -31,7 +31,9 @@ export const useTypePages = (
 
   const getTypePages = (): void => {
     if (type.value === 'all') {
-      typePages.value = pages
+      typePages.value = pages.filter((item) => {
+        return item.frontmatter[key]?.length
+      })
     } else {
       typePages.value = pages.filter((item) => {
         return item.frontmatter[key]?.includes(type.value as string)

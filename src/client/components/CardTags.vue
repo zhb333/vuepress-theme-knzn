@@ -25,8 +25,13 @@ const title = props.all ? '全部标签' : '热门标签'
 const themeOptions = useThemeOptions()
 const tags = ref<LabelItem[]>(getInfoFromPages(props.pages, 'tags'))
 
+const total = tags.value.reduce((res, item) => {
+  res += item.num
+  return res
+}, 0)
+
 if (props.all) {
-  tags.value.unshift({ text: 'all', num: props.pages.length })
+  tags.value.unshift({ text: 'all', num: total })
 }
 
 const tagsList = computed(() => {

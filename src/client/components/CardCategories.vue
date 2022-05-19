@@ -24,8 +24,13 @@ const title = props.all ? '全部分类' : '热门分类'
 const themeOptions = useThemeOptions()
 const categories = ref<LabelItem[]>(getInfoFromPages(props.pages, 'categories'))
 
+const total = categories.value.reduce((res, item) => {
+  res += item.num
+  return res
+}, 0)
+
 if (props.all) {
-  categories.value.unshift({ text: 'all', num: props.pages.length })
+  categories.value.unshift({ text: 'all', num: total })
 }
 
 const categoriesList = computed(() => {

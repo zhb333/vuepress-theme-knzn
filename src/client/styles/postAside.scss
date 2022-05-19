@@ -52,3 +52,11 @@
     padding-top: 8px;
   }
 }
+
+@media (max-width: $MQNarrow) {
+  .post-aside {
+    position: fixed;
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
