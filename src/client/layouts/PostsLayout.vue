@@ -59,11 +59,11 @@ console.log(pageData.value)
       </aside>
       <!-- 文章列表 -->
       <div class="theme-wrapper posts-container card-box">
-        <header v-if="pageData.path" class="header">
-          <h1>{{ pageData.title }}</h1>
-          <PostInfo :post="pageData" />
-        </header>
         <div class="post-content markdown-body">
+          <header v-if="pageData.path" class="header">
+            <h1>{{ pageData.title }}</h1>
+            <PostInfo :post="pageData" />
+          </header>
           <Content />
         </div>
         <ul class="posts">

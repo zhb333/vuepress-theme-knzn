@@ -6,6 +6,7 @@
   position: sticky;
   top: var(--navbar-height);
   overflow: auto;
+  transition: var(--t-transform);
 
   .menu-list {
     padding: 25px 0;
@@ -57,6 +58,11 @@
   .post-aside {
     position: fixed;
     left: 0;
+    z-index: 999;
     transform: translateX(-100%);
+
+    &.active {
+      transform: translateX(0);
+    }
   }
 }

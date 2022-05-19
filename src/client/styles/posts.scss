@@ -119,3 +119,32 @@
     margin-right: 1rem;
   }
 }
+
+@media (max-width: $MQMobile) {
+  .post-list .post-item {
+    padding: 0.5rem 1rem;
+    margin-bottom: 12px;
+    .post-section {
+      width: 100%;
+    }
+    &.left {
+      .post-section {
+        left: 0;
+      }
+    }
+
+    .post-footer {
+      display: none;
+    }
+
+    .post-title {
+      a {
+        font-size: 18px;
+      }
+    }
+
+    .post-excerpt {
+      font-size: 14px;
+    }
+  }
+}

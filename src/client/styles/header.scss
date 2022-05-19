@@ -173,6 +173,7 @@
     }
     &,
     &.active {
+      padding: 0 25px;
       height: 60px;
       background-color: var(--color-canvas-default);
       box-shadow: 0 0 var(--navbar-height) var(--color-border-default);
@@ -345,5 +346,12 @@
     .slogan {
       color: var(--color-fg-muted);
     }
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .theme-header,
+  .theme-header.active {
+    padding: 0 12px;
   }
 }

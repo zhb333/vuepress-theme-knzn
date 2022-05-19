@@ -49,4 +49,26 @@
     color: #fff;
     background-color: var(--color-accent-fg);
   }
+  @media (max-width: $MQMobile) {
+    align-items: center;
+    .btn {
+      padding: 0 8px;
+    }
+    ul {
+      padding: 0;
+    }
+    li {
+      height: 35px;
+    }
+
+    .numb {
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+    }
+
+    .dots {
+      line-height: 35px;
+    }
+  }
 }

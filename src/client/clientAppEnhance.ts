@@ -5,10 +5,10 @@ import Badge from './components/global/Badge.vue'
 import CodeGroup from './components/global/CodeGroup'
 import CodeGroupItem from './components/global/CodeGroupItem.vue'
 import NpmBadge from './components/global/NpmBadge.vue'
+import 'aos/dist/aos.css'
 import './styles/index.scss'
 import './iconfont/iconfont.css'
 import 'animate.css'
-import 'aos/dist/aos.css'
 
 import { setupPages } from './hooks'
 

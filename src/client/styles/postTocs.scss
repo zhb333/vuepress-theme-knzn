@@ -3,6 +3,7 @@
   margin-left: 15px;
   position: sticky;
   top: 90px;
+  transition: var(--t-transform);
 
   .vuepress-toc-list {
     padding-left: 12px;
@@ -23,5 +24,22 @@
 
   .vuepress-toc-item {
     margin-bottom: 8px;
+  }
+
+  @media (max-width: $MQNarrow) {
+    position: fixed;
+    right: 0;
+    top: var(--navbar-height);
+    height: 100vh;
+    overflow: auto;
+    border-radius: 0;
+    border-left: 1px solid var(--color-border-default);
+    z-index: 999;
+    width: 17.1rem;
+    transform: translateX(100%);
+
+    &.active {
+      transform: translateX(0);
+    }
   }
 }

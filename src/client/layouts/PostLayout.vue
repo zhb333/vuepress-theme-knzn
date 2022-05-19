@@ -8,18 +8,51 @@ import { usePageData } from '@vuepress/client'
 import GiscusComment from '../components/GiscusComment.vue'
 import type { ThemePageData } from '../../node'
 import type { Ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const pageData = usePageData() as Ref<ThemePageData>
+
+const isAsideShow = ref(false)
+const isTocsShow = ref(false)
+
+const handleAside = (): void => {
+  isAsideShow.value = !isAsideShow.value
+}
+
+const handleTocs = (): void => {
+  isTocsShow.value = !isTocsShow.value
+}
+
+const handleContainerClick = (): void => {
+  if (isAsideShow.value) {
+    isAsideShow.value = false
+  }
+  if (isTocsShow.value) {
+    isTocsShow.value = false
+  }
+}
+
+onMounted(() => {
+  document
+    .querySelector('.theme-container')
+    ?.addEventListener('click', handleContainerClick, false)
+})
+
+onBeforeUnmount(() => {
+  document
+    .querySelector('.theme-container')
+    ?.removeEventListener('click', handleContainerClick, false)
+})
 </script>
 <template>
   <Header />
   <main class="theme-container theme-post-container">
-    <PostAside />
+    <PostAside :class="{ active: isAsideShow }" />
     <div class="theme-content post-container">
       <!-- 文章内容 -->
       <div class="post-wrapper">
-        <i class="iconfont icon-categorynormal aside-btn"></i>
-        <i class="iconfont icon-book toc-btn"></i>
+        <i class="iconfont icon-book toc-btn" @click.stop="handleTocs"></i>
+        <i class="iconfont icon-menu aside-btn" @click.stop="handleAside"></i>
         <div class="markdown-body">
           <h1 class="post-title">
             <span>{{ pageData.title }}</span>
@@ -34,7 +67,10 @@ const pageData = usePageData() as Ref<ThemePageData>
         </div>
       </div>
 
-      <CardTocs v-if="pageData.headers.length" />
+      <CardTocs
+        v-if="pageData.headers.length"
+        :class="{ active: isTocsShow }"
+      />
     </div>
   </main>
   <BackToTop />

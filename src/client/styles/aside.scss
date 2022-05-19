@@ -80,6 +80,16 @@
 // 分类卡片
 .categories {
   margin-bottom: 15px;
+  @media (max-width: $MQNarrow) {
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .num {
+      margin-left: 5px;
+    }
+  }
 
   .item {
     padding: 8px;
@@ -167,6 +177,12 @@
     cursor: pointer;
     &:hover {
       color: var(--color-accent-fg);
+    }
+  }
+
+  @media (max-width: $MQNarrow) {
+    .more {
+      width: 100%;
     }
   }
 }

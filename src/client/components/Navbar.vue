@@ -4,7 +4,7 @@ import NavbarItem from './NavbarItem.vue'
 import NavbarBloger from './NavbarBloger.vue'
 import Medias from './Medias.vue'
 import { useDarkMode, useThemeOptions } from '../hooks'
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 const themeOptions = useThemeOptions()
 const navbar = themeOptions.value.navbar
 
@@ -20,15 +20,24 @@ const isNavListActive = ref(false)
 
 const toggleNavListActive = (): void => {
   isNavListActive.value = !isNavListActive.value
-  console.log('isNavListActive', isNavListActive.value)
+}
+
+const handleContainerClick = (): void => {
+  if (isNavListActive.value) {
+    isNavListActive.value = false
+  }
 }
 
 onMounted(() => {
-  document.querySelector('.theme-container')?.addEventListener('click', () => {
-    if (isNavListActive.value) {
-      isNavListActive.value = false
-    }
-  })
+  document
+    .querySelector('.theme-container')
+    ?.addEventListener('click', handleContainerClick)
+})
+
+onBeforeUnmount(() => {
+  document
+    .querySelector('.theme-container')
+    ?.removeEventListener('click', handleContainerClick)
 })
 </script>
 <template>
