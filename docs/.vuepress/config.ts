@@ -12,7 +12,8 @@ export default defineUserConfig({
   bundler: webpackBundler(),
   theme: KnznTheme({
     // logo
-    logo: 'https://v2.vuepress.vuejs.org/images/hero.png',
+    logo: '/images/logo-light.svg',
+    darkLogo: '/images/logo-dark.svg',
     // 背景图片
     backgroundImage: '/images/bg.svg',
     darkBackgroundImage: '/images/bg-dark.jpg',

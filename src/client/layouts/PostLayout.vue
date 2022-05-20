@@ -4,6 +4,7 @@ import PostAside from '../components/PostAside.vue'
 import CardTocs from '../components/CardTocs.vue'
 import BackToTop from '../components/BackToTop.vue'
 import PostInfo from '../components/PostInfo.vue'
+import Footer from '../components/Footer.vue'
 import { usePageData } from '@vuepress/client'
 import GiscusComment from '../components/GiscusComment.vue'
 import type { ThemePageData } from '../../node'
@@ -73,5 +74,6 @@ onBeforeUnmount(() => {
       />
     </div>
   </main>
+  <Footer class="theme-common-footer" />
   <BackToTop />
 </template>

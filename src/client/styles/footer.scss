@@ -49,34 +49,46 @@
   }
 }
 
+.theme-common-footer,
 .home-comment-footer {
   display: none;
 }
 
 @media (max-width: $MQNarrow) {
+  .theme-common-footer,
   .home-comment-footer {
     display: flex;
+  }
+
+  .footer-content {
+    .medias {
+      padding-top: 50px;
+      align-items: flex-start;
+      a {
+        font-size: 20px;
+      }
+    }
   }
 }
 
 @media (max-width: $MQMobile) {
   .theme-footer {
     height: auto;
-  }
-  .copyright {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 0;
-  }
-  .beian {
-    margin-bottom: 5px;
-    font-size: 14px;
-  }
-  .delimiter {
-    display: none;
-  }
-  .info {
-    font-size: 14px;
+    .copyright {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 0;
+    }
+    .beian {
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    .delimiter {
+      display: none;
+    }
+    .info {
+      font-size: 14px;
+    }
   }
 }

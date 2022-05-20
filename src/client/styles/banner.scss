@@ -61,3 +61,41 @@
     }
   }
 }
+
+.blogger-content {
+  display: none;
+  margin-top: var(--navbar-height);
+  text-align: center;
+  padding: 25px;
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--color-border-default);
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--color-canvas-subtle);
+  }
+
+  .name {
+    margin: 12px 0;
+    font-size: 16px;
+    color: var(--color-white);
+  }
+}
+
+@media (max-width: $MQNarrow) {
+  .decor-box {
+    // display: none;
+    height: 300px;
+  }
+
+  // .home-decor-box {
+  //   display: block;
+  // }
+  .banner-content {
+    display: none;
+  }
+  .blogger-content {
+    display: block;
+  }
+}

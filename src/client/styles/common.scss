@@ -142,56 +142,50 @@
   }
 }
 
-.post-wrapper {
-  position: relative;
-  .toc-btn,
-  .aside-btn {
-    position: absolute;
-    display: none;
-    left: -10px;
-    background-color: var(--color-accent-fg);
-    color: var(--color-white);
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    border: 1px solid var(--color-border-default);
-    border-radius: 50%;
-    cursor: pointer;
-  }
+.toc-btn,
+.aside-btn {
+  position: fixed;
+  display: none;
+  right: 5px;
+  background-color: var(--color-accent-fg);
+  color: var(--color-white);
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 99;
+}
 
-  .toc-btn {
-    top: 15px;
-  }
+.toc-btn {
+  top: 75px;
+}
 
-  .aside-btn {
-    top: 60px;
-  }
+.aside-btn {
+  top: 130px;
 }
 
 @media (max-width: $MQNarrow) {
   #app {
-    background-color: var(--color-canvas-subtle);
+    // background-color: var(--color-canvas-subtle);
   }
   .home-comment-aside {
     display: none;
   }
   .theme-background {
-    display: none;
-  }
-
-  .decor-box {
-    display: none;
+    // display: none;
   }
 
   #tsparticles {
-    display: none;
+    // display: none;
   }
 
   .theme-container {
+    padding: 0 3%;
     padding-top: calc(var(--navbar-height) + 25px);
     padding-bottom: 25px;
-    margin: 0 3%;
   }
 
   .theme-content {
@@ -215,23 +209,43 @@
     margin-bottom: 25px;
   }
 
-  .post-wrapper {
-    .toc-btn,
-    .aside-btn {
-      display: block;
-    }
+  .toc-btn,
+  .aside-btn {
+    display: block;
   }
   .theme-post-container {
     padding-top: var(--navbar-height);
   }
+  .theme-home-container {
+    padding-top: 0;
+  }
 }
 
 @media (max-width: $MQMobile) {
+  .back-to-top {
+    right: 15px;
+  }
+  .theme-post-container {
+    margin-top: 0;
+    display: block;
+  }
+
+  .post-wrapper {
+    width: 100%;
+  }
+
+  .post-container {
+    margin-top: 0;
+  }
+
   .theme-container {
     padding-top: calc(var(--navbar-height) + 12px);
   }
   [data-aos^='fade'][data-aos^='fade'] {
     opacity: 1;
     transform: none;
+  }
+  .theme-home-container {
+    padding-top: 0;
   }
 }

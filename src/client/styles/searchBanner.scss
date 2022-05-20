@@ -49,7 +49,23 @@
 
 @media (max-width: $MQNarrow) {
   .search-banner {
-    padding-top: calc(var(--navbar-height) + 25px);
     height: auto;
+    height: 200px;
+    .search-box {
+      width: 75%;
+      height: 45px;
+    }
+
+    .search-input {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .search-banner {
+    .search-box {
+      width: 90%;
+    }
   }
 }

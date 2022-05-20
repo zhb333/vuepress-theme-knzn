@@ -10,7 +10,8 @@ const navbar = themeOptions.value.navbar
 
 const darkMode = useDarkMode()
 const themeIcon = computed(() => (darkMode.value ? 'icon-night' : 'icon-sun'))
-const navListEle = ref(null)
+const navListEle = ref<HTMLElement | null>(null)
+const menuBtn = ref(null)
 
 const toggleTheme = (): void => {
   darkMode.value = !darkMode.value
@@ -22,7 +23,14 @@ const toggleNavListActive = (): void => {
   isNavListActive.value = !isNavListActive.value
 }
 
-const handleContainerClick = (): void => {
+const handleContainerClick = (e: Event): void => {
+  if (e.target === menuBtn.value) {
+    return
+  }
+
+  if (navListEle.value && navListEle.value.contains(e.target as HTMLElement)) {
+    return
+  }
   if (isNavListActive.value) {
     isNavListActive.value = false
   }
@@ -30,19 +38,23 @@ const handleContainerClick = (): void => {
 
 onMounted(() => {
   document
-    .querySelector('.theme-container')
+    .querySelector('#app')
     ?.addEventListener('click', handleContainerClick)
 })
 
 onBeforeUnmount(() => {
   document
-    .querySelector('.theme-container')
+    .querySelector('#app')
     ?.removeEventListener('click', handleContainerClick)
 })
 </script>
 <template>
   <nav class="navbar">
-    <i class="iconfont icon-menu menu-btn" @click="toggleNavListActive"></i>
+    <i
+      ref="menuBtn"
+      class="iconfont icon-menu menu-btn"
+      @click="toggleNavListActive"
+    ></i>
     <ul ref="navListEle" class="nav-list" :class="{ active: isNavListActive }">
       <li class="nav-item">
         <NavbarBloger />

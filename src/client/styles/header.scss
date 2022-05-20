@@ -4,7 +4,7 @@
   width: 100%;
   left: 0;
   top: 0;
-  z-index: 99;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,6 +130,15 @@
           @include arrow(up, var(--color-white));
         }
       }
+
+      .navbar-dropdown-subitem {
+        .navbar-item {
+          color: var(--color-fg-default);
+          &:hover {
+            color: var(--color-accent-fg);
+          }
+        }
+      }
     }
 
     .nav-item .navbar-item {
@@ -190,6 +199,12 @@
       .navbar-dropdown {
         .title {
           color: var(--color-fg-default);
+        }
+      }
+
+      .logo-link {
+        .title {
+          color: var(--color-accent-fg);
         }
       }
 
@@ -263,7 +278,7 @@
       position: fixed;
       right: 0;
       top: 60px;
-      width: 17.099999999999998rem;
+      width: 17.1rem;
       background-color: var(--color-canvas-default);
       height: calc(100vh - 60px);
       flex-direction: column;
@@ -288,6 +303,17 @@
       padding: 15px 0;
       border-top: 1px solid var(--color-border-default);
       border-bottom: 1px solid var(--color-border-default);
+    }
+  }
+
+  @media (max-width: $MQMobile) {
+    &,
+    &.active {
+      padding: 0 12px;
+    }
+
+    .nav-list {
+      width: 15rem;
     }
   }
 }
@@ -346,12 +372,5 @@
     .slogan {
       color: var(--color-fg-muted);
     }
-  }
-}
-
-@media (max-width: $MQMobile) {
-  .theme-header,
-  .theme-header.active {
-    padding: 0 12px;
   }
 }

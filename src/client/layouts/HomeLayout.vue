@@ -11,7 +11,13 @@ import Logo from '../components/Logo.vue'
 import Medias from '../components/Medias.vue'
 import ParticlesBg from '../components/ParticlesBg.vue'
 import Pagination from '../components/Pagination.vue'
-import { useDarkMode, usePages, useScrollTop, useThemeOptions } from '../hooks'
+import {
+  useBloger,
+  useDarkMode,
+  usePages,
+  useScrollTop,
+  useThemeOptions,
+} from '../hooks'
 import { computed, ref } from 'vue'
 import { assetScrollToTop } from '../utils'
 const themeOptions = useThemeOptions()
@@ -41,16 +47,18 @@ const pageList = computed(() => {
 const handlePageChange = (num): void => {
   page.value = num
 }
+
+const { avatarSrc, blogger, slogan } = useBloger()
 </script>
 <template>
   <!-- 头部 -->
   <Header :is-logo="!isActiveCls" :class="{ active: isActiveCls }" />
   <!-- 背景图片 -->
-  <div class="theme-background" :style="contianerStyle"></div>
+  <div class="theme-background home-background" :style="contianerStyle"></div>
   <!-- canvas 背景动画 -->
   <ParticlesBg />
   <!-- 首页banner -->
-  <DecorBox v-slot="{ active }">
+  <DecorBox v-slot="{ active }" class="home-decor-box">
     <div class="banner-content">
       <Transition
         enter-active-class="animate__animated animate__fadeInDown animate__fast"
@@ -59,9 +67,18 @@ const handlePageChange = (num): void => {
         <Logo v-show="active" />
       </Transition>
     </div>
+    <Transition
+      enter-active-class="animate__animated animate__fadeInDown animate__fast"
+      appear
+    >
+      <div class="blogger-content">
+        <img :src="avatarSrc" alt="" class="avatar card-box" />
+        <h3 class="name">{{ blogger }}</h3>
+      </div>
+    </Transition>
   </DecorBox>
   <!-- 首页内容 -->
-  <main class="theme-container">
+  <main class="theme-container theme-home-container">
     <div class="theme-content">
       <!-- 侧边栏 -->
       <aside class="theme-aside home-comment-aside">
@@ -92,12 +109,12 @@ const handlePageChange = (num): void => {
         <Transition
           enter-active-class="animate__animated animate__fadeInUp animate__delay-1s"
         >
-          <Footer v-show="active" class="home-footer" />
+          <Footer class="home-footer" />
         </Transition>
       </div>
     </template>
   </DecorBox>
-  <Footer class="home-comment-footer" />
+  <!-- <Footer class="home-comment-footer" /> -->
   <!-- 回到顶部 -->
   <BackToTop />
 </template>

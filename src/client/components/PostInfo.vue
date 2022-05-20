@@ -24,11 +24,23 @@ const { author, date, tags, categories } = getPostInfo(props.post)
     >
     <span v-if="categories!.length" class="post-info-item">
       <i class="iconfont icon-categorynormal" title="分类"></i>
-      <i v-for="text of categories" :key="text" class="post-type">{{ text }}</i>
+      <RouterLink
+        v-for="text of categories"
+        :key="text"
+        :to="{ path: '/categories/', query: { category: text } }"
+        class="post-type"
+        >{{ text }}</RouterLink
+      >
     </span>
     <span v-if="tags!.length" class="post-info-item">
       <i class="iconfont icon-tag" title="标签"></i>
-      <i v-for="text of tags" :key="text" class="post-type">{{ text }}</i>
+      <RouterLink
+        v-for="text of tags"
+        :key="text"
+        :to="{ path: '/tags/', query: { tag: text } }"
+        class="post-type"
+        >{{ text }}</RouterLink
+      >
     </span>
   </div>
 </template>
