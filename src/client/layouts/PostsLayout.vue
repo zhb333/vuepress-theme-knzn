@@ -41,7 +41,6 @@ const menuList = useMenuList()
 const pages = usePages()
 
 const pageData = usePageData() as Ref<ThemePageData>
-console.log(pageData.value)
 </script>
 <template>
   <!-- 头部 -->

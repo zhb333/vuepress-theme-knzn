@@ -31,7 +31,6 @@ export function getSidebarPages(
   dirPath: string,
   list: MenuList
 ): MenuList {
-  // console.log('dirPath', dirPath)
   for (const page of pages) {
     const paths = page.path.split(dirPath)
     const secondPath = paths[1]

@@ -18,8 +18,6 @@ const categoriesPostNum = categories.reduce((res, item) => {
   return res
 }, 0)
 
-console.log(tagsPostNum, categoriesPostNum)
-
 const { avatarSrc, blogger, slogan } = useBloger()
 </script>
 <template>

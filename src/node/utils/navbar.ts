@@ -80,5 +80,3 @@ const getNavbar = (tName: string): MenuItem[] => {
 }
 
 export { getNavbar }
-
-// console.log(getNavbar('posts'))
