@@ -96,6 +96,7 @@ const handleSearch = (): void => {
           type="text"
           class="search-input"
           placeholder="请输入搜索内容..."
+          @change.enter="handleSearch"
         />
         <button class="search-btn" @click="handleSearch">搜索</button>
       </div>
