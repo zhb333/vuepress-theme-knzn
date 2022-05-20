@@ -9,8 +9,10 @@ import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 import { prismjsPlugin } from '@vuepress/plugin-prismjs'
 import { containerPlugin } from '@vuepress/plugin-container'
 import { addExtraPages, assignOptions } from './utils'
+export * from './utils'
+export * from './types'
 
-export const KnznTheme = (options: ThemeOptions): Theme => {
+export default (options: ThemeOptions): Theme => {
   assignOptions(options)
   return {
     name: 'vuepress-theme-knzn',
@@ -101,6 +103,3 @@ export const KnznTheme = (options: ThemeOptions): Theme => {
     },
   }
 }
-
-export * from './utils'
-export * from './types'

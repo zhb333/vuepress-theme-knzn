@@ -1,5 +1,5 @@
 import { defineUserConfig } from 'vuepress'
-import { KnznTheme } from '../../src'
+import KnznTheme from '../../src/node'
 // import { particlesOptions } from './particlesOptions'
 import { webpackBundler } from '@vuepress/bundler-webpack'
 

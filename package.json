@@ -2,10 +2,14 @@
   "name": "vuepress-theme-knzn",
   "version": "1.0.0",
   "description": "blog theme for vuepress2",
-  "main": "src/index.ts",
+  "main": "lib/node/index.js",
+  "types": "lib/node/index.d.ts",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
+    "build:lib": "tsc -b tsconfig.build.json",
+    "clean": "rimraf lib *.tsbuildinfo",
+    "copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib",
     "commit": "cz",
     "prepare": "husky install"
   },
@@ -33,6 +37,7 @@
     "@vuepress/bundler-webpack": "^2.0.0-beta.43",
     "@vuepress/plugin-toc": "^2.0.0-beta.43",
     "commitizen": "^4.2.4",
+    "cpx2": "^4.2.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.14.0",
     "eslint-config-vuepress": "^3.7.1",
@@ -41,7 +46,9 @@
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "prettier-config-vuepress": "^1.4.0",
+    "rimraf": "^3.0.2",
     "sass-loader": "^12.6.0",
+    "typescript": "^4.6.4",
     "vuepress": "^2.0.0-beta.43"
   },
   "lint-staged": {
