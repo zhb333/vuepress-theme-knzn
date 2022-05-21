@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-knzn",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "blog theme for vuepress2",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
@@ -8,6 +8,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "build": "tsc -b tsconfig.build.json && node scripts && yarn copy && yarn clean",
+    "publish": "yarn build && npm publish",
     "clean": "rimraf  *.tsbuildinfo",
     "copy": "cpx \"src/**/*.{d.ts,vue,scss,css,svg,ttf,woff,woff2}\" lib",
     "commit": "cz",
