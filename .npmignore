@@ -1,0 +1,10 @@
+src
+docs
+.husky
+.vscode
+scripts
+10
+commitlint.config.js
+.editorconfig
+.eslintignore
+.eslintrc.js

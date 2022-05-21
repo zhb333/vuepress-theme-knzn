@@ -14,14 +14,10 @@ export * from './types'
 
 export default (options: ThemeOptions): Theme => {
   assignOptions(options)
-  return {
+  return (app) => ({
     name: 'vuepress-theme-knzn',
     layouts: path.resolve(__dirname, '../client/layouts'),
-    clientAppEnhanceFiles: path.resolve(
-      __dirname,
-      '../client/clientAppEnhance.ts'
-    ),
-    clientAppSetupFiles: path.resolve(__dirname, '../client/clientAppSetup.ts'),
+    clientConfigFile: path.resolve(__dirname, '../client/clientConfig.ts'),
     alias: {
       '@theme-style': path.resolve(__dirname, '../client/assets/styles'),
     },
@@ -51,9 +47,7 @@ export default (options: ThemeOptions): Theme => {
       }),
       externalLinkIconPlugin(),
       themeDataPlugin({ themeData: options }),
-      tocPlugin({
-        // 配置项
-      }),
+      tocPlugin(),
       activeHeaderLinksPlugin({
         // 配置项
         headerLinkSelector: 'a.vuepress-toc-link',
@@ -101,5 +95,5 @@ export default (options: ThemeOptions): Theme => {
     async onInitialized(app) {
       await addExtraPages(app)
     },
-  }
+  })
 }
