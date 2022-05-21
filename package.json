@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-knzn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "blog theme for vuepress2",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
@@ -63,7 +63,6 @@
     "@giscus/vue": "^2.0.4",
     "@vuepress/plugin-toc": "^2.0.0-beta.45",
     "animate.css": "^4.1.1",
-    "aos": "^2.3.4",
     "particles.vue3": "^2.0.6",
     "ts-debounce": "^4.0.0",
     "tsparticles": "^2.0.6"

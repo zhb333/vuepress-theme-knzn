@@ -5,12 +5,12 @@ import Badge from './components/global/Badge.vue'
 import CodeGroup from './components/global/CodeGroup'
 import CodeGroupItem from './components/global/CodeGroupItem.vue'
 import NpmBadge from './components/global/NpmBadge.vue'
-import 'aos/dist/aos.css'
+// import 'aos/dist/aos.css'
 import './styles/index.scss'
 import './iconfont/iconfont.css'
 import 'animate.css'
 import { setupDarkMode, setupPages, setupScrollTop } from './hooks'
-import AOS from 'aos'
+// import AOS from 'aos'
 
 export default defineClientConfig({
   async enhance({ app, router, siteData }) {
@@ -36,9 +36,9 @@ export default defineClientConfig({
     setupDarkMode()
     setupScrollTop()
     onMounted(() => {
-      AOS.init({
-        disable: 'mobile',
-      })
+      // AOS.init({
+      //   disable: 'mobile',
+      // })
     })
   },
   rootComponents: [],
