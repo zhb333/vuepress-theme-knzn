@@ -16,7 +16,7 @@ import {
 import { computed } from 'vue'
 import type { Ref } from 'vue'
 import { assetScrollToTop } from '../utils'
-import { usePageData } from '@vuepress/client'
+import { usePageData, withBase } from '@vuepress/client'
 import type { ThemePageData } from '../../node'
 
 const themeOptions = useThemeOptions()
@@ -30,7 +30,7 @@ const contianerStyle = computed(() => {
     (isDarkMode.value ? darkBackgroundImage : backgroundImage) ||
     backgroundImage
   return {
-    'background-image': `url("${bgUrl}")`,
+    'background-image': `url("${withBase(bgUrl || '')}")`,
   }
 })
 

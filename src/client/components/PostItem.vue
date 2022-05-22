@@ -5,6 +5,7 @@ import PostInfo from './PostInfo.vue'
 import type { ThemePageData } from '../../node'
 import { getPostInfo } from '../utils'
 import { useDarkMode, useThemeOptions } from '../hooks'
+import { withBase } from '@vuepress/client'
 
 const props = defineProps({
   post: {
@@ -39,7 +40,7 @@ const postStyle = computed(() => {
     'background-position': `${postPosition.value} center`, // 海报位置
   }
   if (postSrc.value) {
-    style['background-image'] = `url("${postSrc.value}")` // 海报图片
+    style['background-image'] = `url("${withBase(postSrc.value)}")` // 海报图片
   }
   return style
 })

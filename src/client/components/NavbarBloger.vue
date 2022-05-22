@@ -2,6 +2,7 @@
 import { usePages } from '../hooks'
 import { useBloger } from '../hooks/useBloger'
 import { getInfoFromPages } from '../utils'
+import { withBase } from '@vuepress/client'
 
 const pages = usePages()
 
@@ -23,7 +24,7 @@ const { avatarSrc, blogger, slogan } = useBloger()
 <template>
   <div class="navbar-blogger">
     <div class="avatar">
-      <img :src="avatarSrc" alt="头像" title="头像" />
+      <img :src="withBase(avatarSrc || '')" alt="头像" title="头像" />
     </div>
     <div class="types">
       <RouterLink to="/categories/?category=all" class="type">

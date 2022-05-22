@@ -1,6 +1,6 @@
 # vuepress-theme-knzn
 
-一个基于 Vuepress2 的博客主题， 点击 [demo](https://www.knzn.net/) 查看演示效果
+一个基于 Vuepress2 的博客主题， 点击 [demo](https://www.knzn.net/) or [gh-pages](https://zhb333.github.io/vuepress-theme-knzn/) 查看演示效果
 
 ## 一、安装
 

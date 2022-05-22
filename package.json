@@ -7,8 +7,9 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
+    "docs:deploy": "vuepress build docs --config docs/.vuepress/deploy.ts",
     "build": "tsc -b tsconfig.build.json && node scripts && yarn copy && yarn clean",
-    "publish": "yarn build && npm publish",
+    "publish:npm": "yarn build && npm publish",
     "clean": "rimraf  *.tsbuildinfo",
     "copy": "cpx \"src/**/*.{d.ts,vue,scss,css,svg,ttf,woff,woff2}\" lib",
     "commit": "cz",

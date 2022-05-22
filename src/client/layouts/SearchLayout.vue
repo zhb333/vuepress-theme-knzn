@@ -8,6 +8,7 @@ import { useDarkMode, usePages, useScrollTop, useThemeOptions } from '../hooks'
 import { computed, ref } from 'vue'
 import { assetScrollToTop } from '../utils'
 import type { ThemePageData } from '../../node'
+import { withBase } from '@vuepress/client'
 // 搜索内容
 const searchText = ref('')
 // 搜索的文章
@@ -23,7 +24,7 @@ const contianerStyle = computed(() => {
     (isDarkMode.value ? darkBackgroundImage : backgroundImage) ||
     backgroundImage
   return {
-    'background-image': `url("${bgUrl}")`,
+    'background-image': `url("${withBase(bgUrl || '')}")`,
   }
 })
 

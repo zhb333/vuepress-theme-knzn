@@ -20,6 +20,7 @@ import {
 } from '../hooks'
 import { computed, ref } from 'vue'
 import { assetScrollToTop } from '../utils'
+import { withBase } from '@vuepress/client'
 const themeOptions = useThemeOptions()
 const scrollTop = useScrollTop()
 const isDarkMode = useDarkMode()
@@ -29,7 +30,7 @@ const contianerStyle = computed(() => {
     (isDarkMode.value ? darkBackgroundImage : backgroundImage) ||
     backgroundImage
   return {
-    'background-image': `url("${bgUrl}")`,
+    'background-image': `url("${withBase(bgUrl || '')}")`,
   }
 })
 const isActiveCls = computed(() => assetScrollToTop(scrollTop.value))
@@ -72,7 +73,7 @@ const { avatarSrc, blogger, slogan } = useBloger()
       appear
     >
       <div class="blogger-content">
-        <img :src="avatarSrc" alt="" class="avatar card-box" />
+        <img :src="withBase(avatarSrc || '')" alt="" class="avatar card-box" />
         <h3 class="name">{{ blogger }}</h3>
       </div>
     </Transition>

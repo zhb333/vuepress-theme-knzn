@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDarkMode, useThemeOptions } from '../hooks'
-import { useSiteData } from '@vuepress/client'
+import { useSiteData, withBase } from '@vuepress/client'
 import { computed } from 'vue'
 
 const siteData = useSiteData()
@@ -14,7 +14,7 @@ const logoUrl = computed(() => {
 </script>
 <template>
   <RouterLink to="/" class="logo-link">
-    <img v-if="logoUrl" :src="logoUrl" alt="" class="logo" />
+    <img v-if="logoUrl" :src="withBase(logoUrl)" alt="" class="logo" />
     <strong v-if="siteData.title" class="title">{{ siteData.title }}</strong>
   </RouterLink>
 </template>

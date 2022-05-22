@@ -8,6 +8,7 @@ export default defineUserConfig({
   lang: 'zh-CN',
   title: 'knzn.net',
   description: '大前端知识分享网站',
+  base: '/vuepress-theme-knzn/',
   // debug: true,
   bundler: webpackBundler(),
   theme: KnznTheme({
