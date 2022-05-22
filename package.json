@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-knzn",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "blog theme for vuepress2",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
