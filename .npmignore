@@ -8,3 +8,9 @@ commitlint.config.js
 .editorconfig
 .eslintignore
 .eslintrc.js
+tsconfig.base.json
+tsconfig.build.json
+tsconfig.cjs.json
+tsconfig.esm.json
+tsconfig.json
+yarn.lock

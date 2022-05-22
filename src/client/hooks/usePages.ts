@@ -26,6 +26,8 @@ export async function setupPages(app: App, router): Promise<void> {
   pages = await Promise.all(
     Object.keys(pagesData.value).map((key) => (pagesData.value[key] as any)())
   )
-  pages = pages.filter((item) => !paths.includes(item.path))
+  pages = pages.filter((item) => {
+    return !paths.includes(item.path) && !/\/index\.html$/.test(item.path)
+  })
   app.provide(pagesSymbol, pages)
 }
