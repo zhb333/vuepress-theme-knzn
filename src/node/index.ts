@@ -9,6 +9,7 @@ import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 import { prismjsPlugin } from '@vuepress/plugin-prismjs'
 import { containerPlugin } from '@vuepress/plugin-container'
 import { addExtraPages, assignOptions } from './utils'
+import md5 from 'md5'
 export * from './utils'
 export * from './types'
 
@@ -26,12 +27,16 @@ export default (options: ThemeOptions): Theme => {
         let relativePath = path.relative(process.cwd(), pageOptions.filePath)
         relativePath = relativePath.slice(relativePath.indexOf('/'))
         if (!/^\/(index|readme)\.md$/i.test(relativePath)) {
-          const dirPath = relativePath.slice(
-            0,
-            relativePath.lastIndexOf('/') + 1
-          )
+          //   const dirPath = relativePath.slice(
+          //     0,
+          //     relativePath.lastIndexOf('/') + 1
+          //   )
+          //   pageOptions.frontmatter = pageOptions.frontmatter ?? {}
+          //   pageOptions.frontmatter.permalinkPattern = `${dirPath}:slug.html`
+          // }
+
           pageOptions.frontmatter = pageOptions.frontmatter ?? {}
-          pageOptions.frontmatter.permalinkPattern = `${dirPath}:slug.html`
+          pageOptions.frontmatter.permalink = `/${md5(pageOptions.filePath)}/`
         }
       }
     },

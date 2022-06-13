@@ -1,7 +1,6 @@
 import type { ThemeOptions } from '../types'
 import type { App } from '@vuepress/core'
 import { createPage } from '@vuepress/core'
-import { getNavbar } from './navbar'
 
 export const DEFAULT_LOCALE_OPTIONS: ThemeOptions = {
   dirname: 'docs',
@@ -26,9 +25,6 @@ export const DEFAULT_LOCALE_OPTIONS: ThemeOptions = {
  */
 export const assignOptions = (options: ThemeOptions): void => {
   // 生成导航
-  DEFAULT_LOCALE_OPTIONS.navbar = getNavbar(
-    DEFAULT_LOCALE_OPTIONS.dirname as string
-  )
   if (options.comment) {
     options.comment = {
       ...DEFAULT_LOCALE_OPTIONS.comment,

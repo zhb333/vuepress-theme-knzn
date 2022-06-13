@@ -3,10 +3,13 @@ import NavbarDropdown from './NavbarDropdown.vue'
 import NavbarItem from './NavbarItem.vue'
 import NavbarBloger from './NavbarBloger.vue'
 import Medias from './Medias.vue'
-import { useDarkMode, useThemeOptions } from '../hooks'
+import { useDarkMode, usePages, useThemeOptions } from '../hooks'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { getNavs } from '../utils'
+const pages = usePages()
+const navs = getNavs(pages)
 const themeOptions = useThemeOptions()
-const navbar = themeOptions.value.navbar
+const navbar = themeOptions.value.navbar || navs
 
 const darkMode = useDarkMode()
 const themeIcon = computed(() => (darkMode.value ? 'icon-night' : 'icon-sun'))

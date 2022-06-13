@@ -1,4 +1,4 @@
-import type { MenuItem } from '../types'
+import type { MenuItem, MenuList } from '../types'
 const fs = require('fs')
 const path = require('path')
 
@@ -59,7 +59,7 @@ const getDirNavbarItem = (cPath: string, tName: string): MenuItem => {
  * @param tName
  * @returns
  */
-const getNavbar = (tName: string): MenuItem[] => {
+const getNavbar = (tName: string): MenuList => {
   const tPath = path.resolve(process.cwd(), tName)
   const navbar: MenuItem[] = []
   const files = fs.readdirSync(tPath)
