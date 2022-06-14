@@ -1,11 +1,36 @@
 <script setup lang="ts">
-import { useMenuList } from '../hooks'
+import { useNavs, usePages } from '../hooks'
 import { useRoute } from 'vue-router'
 import NavbarItem from './NavbarItem.vue'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { usePageData } from '@vuepress/client'
+import type { MenuList, ThemePageData } from '../../node'
+const pages = usePages()
+const navs = useNavs(pages)
 
-const menuList = useMenuList()
+const menuList = ref<MenuList>([])
 const route = useRoute()
+
+watch(
+  route,
+  () => {
+    const page = usePageData<ThemePageData>()
+    const filePathRelative = page.value.filePathRelative
+
+    const paths = filePathRelative?.split('/').slice(0, -1)
+    let prevList = navs
+    while (paths?.length) {
+      const nextPath = paths.shift()
+      const item = prevList.find((obj) => obj.text === nextPath)
+      if (item) {
+        prevList = item.children as MenuList
+      }
+    }
+    menuList.value = prevList
+    console.log(paths, prevList)
+  },
+  { immediate: true }
+)
 const dirLink = ref('')
 
 const handleDirClick = (link: string): void => {

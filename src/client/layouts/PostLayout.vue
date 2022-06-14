@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Header from '../components/Header.vue'
 import PostAside from '../components/PostAside.vue'
 import CardTocs from '../components/CardTocs.vue'
 import BackToTop from '../components/BackToTop.vue'
@@ -46,7 +45,6 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-  <Header />
   <main class="theme-container theme-post-container">
     <PostAside :class="{ active: isAsideShow }" />
     <div class="theme-content post-container">

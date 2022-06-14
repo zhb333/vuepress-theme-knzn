@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 import CardCategories from '../components/CardCategories.vue'
 import PostList from '../components/PostList.vue'
@@ -11,7 +10,6 @@ const { pages, pageList, handlePageChange, perPage, page, total } =
   useTypePages('categories', 'category')
 </script>
 <template>
-  <Header />
   <main class="theme-container theme-common-container">
     <div class="theme-content">
       <aside class="theme-aside">

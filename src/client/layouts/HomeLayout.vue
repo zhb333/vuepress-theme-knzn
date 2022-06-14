@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 import DecorBox from '../components/DecorBox.vue'
 import CardAvatar from '../components/CardAvatar.vue'
@@ -19,10 +18,8 @@ import {
   useThemeOptions,
 } from '../hooks'
 import { computed, ref } from 'vue'
-import { assetScrollToTop } from '../utils'
 import { withBase } from '@vuepress/client'
 const themeOptions = useThemeOptions()
-const scrollTop = useScrollTop()
 const isDarkMode = useDarkMode()
 const contianerStyle = computed(() => {
   const { backgroundImage, darkBackgroundImage } = themeOptions.value
@@ -33,7 +30,6 @@ const contianerStyle = computed(() => {
     'background-image': `url("${withBase(bgUrl || '')}")`,
   }
 })
-const isActiveCls = computed(() => assetScrollToTop(scrollTop.value))
 
 const pages = usePages()
 
@@ -53,7 +49,7 @@ const { avatarSrc, blogger, slogan } = useBloger()
 </script>
 <template>
   <!-- 头部 -->
-  <Header :is-logo="!isActiveCls" :class="{ active: isActiveCls }" />
+  <!-- <Header :is-logo="!isActiveCls" :class="{ active: isActiveCls }" /> -->
   <!-- 背景图片 -->
   <div class="theme-background home-background" :style="contianerStyle"></div>
   <!-- canvas 背景动画 -->

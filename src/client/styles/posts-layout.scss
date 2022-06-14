@@ -2,7 +2,7 @@
   align-self: stretch;
 
   .posts {
-    padding: 15px 25px;
+    padding: 50px 25px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -43,7 +43,12 @@
 }
 
 .posts-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
   height: 180px;
+  text-shadow: 0 2px 3px var(--color-border-muted);
   @media (max-width: $MQNarrow) {
     height: 0;
   }

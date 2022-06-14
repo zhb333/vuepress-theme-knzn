@@ -48,6 +48,7 @@ export const addExtraPages = async (app: App): Promise<void> => {
     { path: '/search/', title: '搜索' },
     { path: '/tags/', title: '标签' },
     { path: '/categories/', title: '分类' },
+    { path: '/PostsLayout/', title: '文件夹' },
   ]
   for (const item of extraPages) {
     if (app.pages.every((page) => page.path !== item.path)) {

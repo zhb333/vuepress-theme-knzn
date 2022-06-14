@@ -1,14 +1,13 @@
-import { usePages } from '../hooks'
+import type { ThemePageData } from './../../node/types'
 import { useRoute } from 'vue-router'
 import { getSidebarPages } from '../utils'
 import type { MenuList } from '../../node'
 import type { Ref } from 'vue'
 import { ref, watch } from 'vue'
 
-export const useMenuList = (): Ref<MenuList> => {
+export const useMenuList = (pages: ThemePageData[]): Ref<MenuList> => {
   const menuList = ref([]) as Ref<MenuList>
   const route = useRoute()
-  const pages = usePages()
 
   const getList = (): void => {
     menuList.value = []

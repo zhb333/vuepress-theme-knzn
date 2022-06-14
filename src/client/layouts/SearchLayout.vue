@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import Header from '../components/Header.vue'
 import PostList from '../components/PostList.vue'
 import BackToTop from '../components/BackToTop.vue'
 import Pagination from '../components/Pagination.vue'
 import Footer from '../components/Footer.vue'
-import { useDarkMode, usePages, useScrollTop, useThemeOptions } from '../hooks'
+import { useDarkMode, usePages, useThemeOptions } from '../hooks'
 import { computed, ref } from 'vue'
-import { assetScrollToTop } from '../utils'
 import type { ThemePageData } from '../../node'
 import { withBase } from '@vuepress/client'
 // 搜索内容
@@ -14,7 +12,6 @@ const searchText = ref('')
 // 搜索的文章
 const list = ref<ThemePageData[]>([])
 const themeOptions = useThemeOptions()
-const scrollTop = useScrollTop()
 const isDarkMode = useDarkMode()
 
 // 背景图片
@@ -29,7 +26,6 @@ const contianerStyle = computed(() => {
 })
 
 // 导航是否置顶
-const isActiveCls = computed(() => assetScrollToTop(scrollTop.value))
 
 const pages = usePages()
 
@@ -79,7 +75,6 @@ const handleSearch = (): void => {
 </script>
 <template>
   <!-- 头部 -->
-  <Header :class="{ active: isActiveCls }" />
   <!-- 背景图片 -->
   <div class="theme-background" :style="contianerStyle"></div>
   <!-- 搜索页 banner -->

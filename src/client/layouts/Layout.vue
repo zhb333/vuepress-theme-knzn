@@ -7,6 +7,7 @@ import TagsLayout from './TagsLayout.vue'
 import SearchLayout from './SearchLayout.vue'
 import PostLayout from './PostLayout.vue'
 import PostsLayout from './PostsLayout.vue'
+import Header from '../components/Header.vue'
 const layout = useLayout()
 
 const map = {
@@ -21,5 +22,6 @@ const map = {
 const currentLayout = computed(() => map[layout.value])
 </script>
 <template>
+  <Header />
   <Component :is="currentLayout" />
 </template>
