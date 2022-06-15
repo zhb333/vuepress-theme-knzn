@@ -50,6 +50,9 @@ const getBackgroundColor = (): Record<string, string> => {
 }
 
 const handleTag = (tag): void => {
+  if (typeof sessionStorage !== 'undefined') {
+    sessionStorage.setItem('query', tag)
+  }
   router.push({ path: '/tags/', query: { tag } })
 }
 

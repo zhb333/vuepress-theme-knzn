@@ -42,11 +42,17 @@ const categoriesList = computed(() => {
 })
 
 const handleItem = (category): void => {
+  if (typeof sessionStorage !== 'undefined') {
+    sessionStorage.setItem('query', category)
+  }
   router.push({ path: '/categories/', query: { category } })
 }
 
 const category = computed(() => {
-  return router.currentRoute.value.query.category
+  return (
+    router.currentRoute.value.query.category ||
+    (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('query'))
+  )
 })
 
 const isShowMore = computed(() => {

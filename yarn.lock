@@ -1088,7 +1088,7 @@
     ora "^5.4.1"
     upath "^2.0.1"
 
-"@vueuse/core@^8.5.0":
+"@vueuse/core@^8.5.0", "@vueuse/core@^8.6.0":
   version "8.6.0"
   resolved "https://r.cnpmjs.org/@vueuse/core/-/core-8.6.0.tgz#a8f80363cc63d17382423f16beae57696f376e67"
   integrity sha512-VirzExCm/N+QdrEWT7J4uSrvJ5hquKIAU9alQ37kUvIJk9XxCLxmfRnmekYc1kz2+6BnoyuKYXVmrMV351CB4w==

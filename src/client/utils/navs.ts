@@ -19,7 +19,9 @@ export const getNavs = (pages: ThemePageData[]): MenuList => {
             if (!item) {
               const obj = {
                 text: nextPath,
-                link: '/PostsLayout' + md5(paths.join('/')),
+                link: '/PostsLayout',
+                //  +
+                md5: md5(paths.join('/')),
                 children: [],
               }
               preList.push(obj)
@@ -32,6 +34,7 @@ export const getNavs = (pages: ThemePageData[]): MenuList => {
       }
     }
   })
+  console.log(list)
   return list
 }
 
@@ -39,7 +42,8 @@ export function getMenuList(list: MenuList): MenuList {
   return list.map((item) => {
     if (!item.children) return item
     const hasDeepChildren = item.children.some((child) => child.children)
-    if (!hasDeepChildren) return { text: item.text, link: item.link }
+    if (!hasDeepChildren)
+      return { text: item.text, link: item.link, md5: item.md5 }
     return item
   })
 }

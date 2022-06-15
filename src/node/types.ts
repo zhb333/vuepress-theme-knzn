@@ -128,6 +128,7 @@ export interface MenuItem {
   text: string
   link: string
   children?: MenuList
+  [prop: string]: any
 }
 
 export type MenuList = MenuItem[]

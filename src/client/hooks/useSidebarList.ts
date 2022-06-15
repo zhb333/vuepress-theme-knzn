@@ -15,8 +15,10 @@ export const useSidebarList = (
   const paths = ref<string[]>([])
 
   watch(route, () => {
-    const pathStr = md5Path || route.path.split('PostsLayout')[1]
-    console.log(pathStr)
+    const pathStr =
+      md5Path ||
+      route.query.md5 ||
+      (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('md5'))
     for (const page of pages) {
       if (page.filePathRelative) {
         const dPath = page.filePathRelative?.split('/').slice(0, -1).join('/')

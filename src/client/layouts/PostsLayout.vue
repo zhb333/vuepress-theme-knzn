@@ -8,16 +8,13 @@ import {
   useDarkMode,
   useNavs,
   usePages,
-  useScrollTop,
   useSidebarList,
   useThemeOptions,
 } from '../hooks'
 import { computed } from 'vue'
-import { assetScrollToTop } from '../utils'
 import { withBase } from '@vuepress/client'
 
 const themeOptions = useThemeOptions()
-const scrollTop = useScrollTop()
 const isDarkMode = useDarkMode()
 
 // 背景图片
@@ -30,9 +27,6 @@ const contianerStyle = computed(() => {
     'background-image': `url("${withBase(bgUrl || '')}")`,
   }
 })
-
-// 导航是否置顶
-const isActiveCls = computed(() => assetScrollToTop(scrollTop.value))
 
 const pages = usePages()
 const navs = useNavs(pages)

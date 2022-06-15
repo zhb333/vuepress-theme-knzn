@@ -24,7 +24,10 @@ export const useTypePages = (
   const pages = usePages()
   const route = useRoute()
   const type = computed(() => {
-    return route.query[param]
+    return (
+      route.query[param] ||
+      (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('query'))
+    )
   })
 
   const typePages = ref<ThemePageData[]>(pages)
