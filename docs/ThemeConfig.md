@@ -1,5 +1,5 @@
 ---
-title: vuepress-theme-knzn 主题配置
+title: 主题配置
 author: 前端程序猿
 tags:
   - vuepress
