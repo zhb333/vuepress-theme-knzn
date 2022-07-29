@@ -3,7 +3,7 @@ title: 嵌套文章1
 author: 前端程序猿
 tags:
   - javascript
-  - typescript
+
 categories:
   - 大前端
 # postImage: https://v2.vuepress.vuejs.org/images/hero.png
